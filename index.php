@@ -1,5 +1,6 @@
 <?php
 include("files/db.php");
+include("files/functions.php");
 ?>
 
 <!DOCTYPE html>

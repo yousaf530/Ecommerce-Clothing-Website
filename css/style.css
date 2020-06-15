@@ -1024,6 +1024,7 @@ ol {
   margin-bottom: 26px;
 }
 
+
 .product-item:hover .pi-pic .icon {
   top: 15px;
   opacity: 1;
@@ -1434,8 +1435,6 @@ ol {
   height: 8px;
   border: solid white;
   border-width: 3px 3px 0px 0px;
-  -webkit-transform: rotate(127deg);
-  -ms-transform: rotate(127deg);
   transform: rotate(127deg);
 }
 
@@ -1688,39 +1687,8 @@ ol {
   line-height: 39px;
 }
 
-.prduct-list .product-item {
+.product-list .product-item {
   margin-bottom: 25px;
-}
-
-.loading-more {
-  text-align: center;
-  padding-top: 10px;
-}
-
-.loading-more i {
-  font-size: 22px;
-  color: #663333;
-  margin-right: 6px;
-  position: relative;
-  top: 7px;
-}
-
-.loading-more a {
-  font-size: 18px;
-  font-weight: 700;
-  color: #252525;
-  position: relative;
-  display: inline-block;
-}
-
-.loading-more a:before {
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-  width: 100%;
-  height: 2px;
-  background: #fe4231;
-  content: "";
 }
 
 /*---------------------

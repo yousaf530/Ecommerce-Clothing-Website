@@ -167,7 +167,7 @@ include('../files/db.php');
                         <div class="form-group" style="display: flex;justify-content:center">
                             <div class="col-md-3">
                                 <input name="submit" type="submit" class="btn btn-primary form-control" value="Insert Product">
-                             </div>
+                            </div>
                         </div>
 
                     </form>
@@ -193,3 +193,37 @@ include('../files/db.php');
 </body>
 
 </html>
+
+
+<?php
+
+if (isset($_POST['submit'])) {
+
+    $p_cat_id = $_POST['p_cat_id'];
+    $cat_id = $_POST['cat_id'];
+    $product_title = $_POST['product_title'];
+    $product_img1 = $_FILES['product_img1']['name'];
+    $product_img2 = $_FILES['product_img2']['name'];
+    $product_price = $_POST['product_price'];
+    $product_keywords = $_POST['product_keywords'];
+    $product_desc = $_POST['product_desc'];
+
+
+    $temp_name1 = $_FILES['product_img1']['tmp_name'];
+    $temp_name2 = $_FILES['product_img2']['tmp_name'];
+
+    move_uploaded_file($temp_name1, "img/products/$product_img1");
+    move_uploaded_file($temp_name2, "img/products/$product_img2");
+
+    $insert_product = "Insert into products (p_cat_id,cat_id,date,product_title,product_img1,product_img2,product_price,product_keywords,product_desc)
+    values ('$p_cat_id','$cat_id',NOW(),'$product_title','$product_img1','$product_img2','$product_price','$product_keywords','$product_desc')";
+
+    $run_insert_product = mysqli_query($con, $insert_product);
+
+    if ($run_insert_product) {
+        echo "<script>alert('Product Inserted')</script>";
+        echo "<script>window.open('insert-product.php','_self')</script>";
+    }
+}
+
+?>
