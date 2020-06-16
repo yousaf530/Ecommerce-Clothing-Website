@@ -123,7 +123,7 @@ include("header.php");
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-3">
-                <div class="product-large set-bg" data-setbg="img/products/women-large.jpg">
+                <div class="product-large set-bg" data-setbg="img/women-large.jpg">
                     <h2>Women’s</h2>
                     <a href="shop.php">Discover More</a>
                 </div>
@@ -312,7 +312,7 @@ include("header.php");
                 </div>
             </div>
             <div class="col-lg-3 offset-lg-1">
-                <div class="product-large set-bg m-large" data-setbg="img/products/men-large.jpg">
+                <div class="product-large set-bg m-large" data-setbg="img/men-large.jpg">
                     <h2>Men’s</h2>
                     <a href="shop.php">Discover More</a>
                 </div>

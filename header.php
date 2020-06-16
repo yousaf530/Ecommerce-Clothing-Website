@@ -155,12 +155,6 @@ include('db.php');
                             getProdCat();
                             ?>
 
-                            <!-- <li class="active"><a href="#">Jackets</a></li>
-                            <li><a href="#">Hoodies</a></li>
-                            <li><a href="#">Tee-Shirts</a></li>
-                            <li><a href="#">Jeans</a></li>
-                            <li><a href="#">Shoes</a></li> -->
-
                         </ul>
                     </div>
                 </div>

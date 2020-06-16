@@ -1,4 +1,5 @@
 <?php
+$active = "Product";
 include("db.php");
 include("functions.php");
 include('header.php');
