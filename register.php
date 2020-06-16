@@ -1,4 +1,5 @@
 <?php
+$active = "Register";
 include("db.php");
 include("functions.php");
 include('header.php');

@@ -1,4 +1,5 @@
 <?php
+$active = "Shopping Cart";
 include("db.php");
 include("functions.php");
 include('header.php');

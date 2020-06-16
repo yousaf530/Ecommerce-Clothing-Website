@@ -1,8 +1,7 @@
 <?php
 $active = "Shop";
-include("db.php");  
-include ('header.php');
 include("functions.php");
+include ("header.php");
 ?>
 
 

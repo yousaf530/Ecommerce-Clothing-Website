@@ -1,8 +1,7 @@
 <?php
 $active = "Contact";
-include("db.php");  
 include("functions.php");
-include ("header.php");
+include("header.php");
 
 ?>
 

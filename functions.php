@@ -5,7 +5,7 @@ $db = mysqli_connect('localhost', 'root', '', 'threaderz_store');
 
 // Retrieve Products
 
-function getProduct()
+function getProduct()   
 {
     global $db;
 

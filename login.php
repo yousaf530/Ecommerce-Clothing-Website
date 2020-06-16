@@ -1,5 +1,7 @@
 <?php
-include('header.php');
+$active = "Login";
+include("functions.php");
+include("header.php");
 ?>
 
 
@@ -47,7 +49,7 @@ include('header.php');
                         <button type="submit" class="site-btn login-btn">Sign In</button>
                     </form>
                     <div class="switch-login">
-                        <a href="register.html" class="or-login">Or Create An Account</a>
+                        <a href="register.php" class="or-login">Or Create An Account</a>
                     </div>
                 </div>
             </div>

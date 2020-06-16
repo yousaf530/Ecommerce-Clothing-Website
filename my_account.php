@@ -1,6 +1,8 @@
 <?php
 $active = "Account";
-include('header.php');
+include("functions.php");
+include("header.php");
+
 ?>
 
 

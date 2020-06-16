@@ -166,7 +166,7 @@ include('db.php');
                 </div>
                 <nav class="nav-menu mobile-menu">
                     <ul>
-                        <li class="<?php if ($active == 'Shop') echo "active" ?>"><a href="index.php">Home</a></li>
+                        <li class="<?php if ($active == 'Home') echo "active" ?>"><a href="index.php">Home</a></li>
                         <li class="<?php if ($active == 'Shop') echo "active" ?>"><a href="shop.php">Shop</a></li>
                         <li class="<?php if ($active == 'Contact') echo "active" ?>"><a href="contact.php">Contact</a></li>
 

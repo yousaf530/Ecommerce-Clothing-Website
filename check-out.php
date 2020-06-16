@@ -1,7 +1,7 @@
 <?php
-include("db.php");  
-include ('header.php');
+$active = "Checkout";
 include("functions.php");
+include("header.php");
 ?>
 
 
@@ -24,7 +24,7 @@ include("functions.php");
     <!-- Shopping Cart Section Begin -->
     <section class="checkout-section spad">
         <div class="container">
-            <form action="#" class="checkout-form">
+            <form class="checkout-form">
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="checkout-content">
