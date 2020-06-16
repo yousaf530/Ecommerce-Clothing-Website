@@ -937,45 +937,20 @@ ol {
   padding-top: 32px;
 }
 
-.filter-control ul li {
+.filter-control h3 {
   list-style: none;
   display: inline-block;
-  font-size: 20px;
+  font-size: 22px;
   color: #b2b2b2;
   margin-right: 22px;
   position: relative;
   cursor: pointer;
+  font-weight: 500;
 }
 
-.filter-control ul li a {
-  color: #b2b2b2;
-  text-decoration: none;
-}
-
-.filter-control ul li a:hover {
-  color: grey;
-}
-.filter-control ul li.active {
-  color: #171717;
-}
-
-.filter-control ul li.active:before {
-  opacity: 1;
-}
-
-.filter-control ul li:before {
-  position: absolute;
-  left: 0;
-  bottom: -3px;
-  width: 100%;
-  height: 2px;
-  background: #171717;
-  content: "";
-  opacity: 0;
-}
-
-.filter-control ul li:last-child {
-  margin-right: 0;
+.hovclass a:hover {
+  color: #fe4231 !important;
+  opacity: 0.7;
 }
 
 .product-slider .owl-nav button[type="button"] {

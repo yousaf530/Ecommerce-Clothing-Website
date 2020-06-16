@@ -21,6 +21,9 @@ function getWProduct()
         $product_price = $row_products['product_price'];
         $product_img1 = $row_products['product_img1'];
 
+
+
+
         echo "
         
         <div class='product-item'>
@@ -28,7 +31,7 @@ function getWProduct()
             <img src='img/products/$product_img1' alt='$product_title'>
             <ul>
                 <li class='w-icon active'><a href='#'><i class='icon_bag_alt'></i></a></li>
-                <li class='quick-view'><a href='#'>View Details</a></li>
+                <li class='quick-view'><a href='product.php?product_id=$products_id'>View Details</a></li>
             </ul>
         </div>
         <div class='pi-text'>
@@ -37,7 +40,7 @@ function getWProduct()
                 <h5>$product_title</h5>
             </a>
             <div class='product-price'>
-                $product_price
+               PKR $product_price
             </div>
         </div>
     </div>
@@ -71,7 +74,7 @@ function getMProduct()
             <img src='img/products/$product_img1' alt='$product_title'>
             <ul>
                 <li class='w-icon active'><a href='#'><i class='icon_bag_alt'></i></a></li>
-                <li class='quick-view'><a href='#'>View Details</a></li>
+                <li class='quick-view'><a href='product.php?product_id=$products_id'>View Details</a></li>
             </ul>
         </div>
         <div class='pi-text'>
@@ -80,7 +83,7 @@ function getMProduct()
                 <h5>$product_title</h5>
             </a>
             <div class='product-price'>
-                $product_price
+            PKR $product_price
             </div>
         </div>
     </div>
@@ -137,7 +140,7 @@ function getCat()
 
         echo "
 
-        <li><a href='shop.php?cat_id=$cat_id'>$cat_title</a></li>
+        <li class='hovclass'><a href='shop.php?cat_id=$cat_id'>$cat_title</a></li>
 
         ";
     }
@@ -290,3 +293,107 @@ function getcatProd()
     }
 }
 
+function getProd()
+{
+    global $db;
+
+    if (isset($_GET['product_id'])) {
+
+        $product_id = $_GET['product_id'];
+
+        $get_product_id = "select * from products where products_id='$product_id'";
+        $run_product_id = mysqli_query($db, $get_product_id);
+
+        $row_products = mysqli_fetch_array($run_product_id);
+
+        $product_title = $row_products['product_title'];
+        $product_price = $row_products['product_price'];
+        $product_desc = $row_products['product_desc'];
+        $product_img1 = $row_products['product_img1'];
+        $product_img2 = $row_products['product_img2'];
+
+
+        $get_p_cat_name = "select p_cat_title from products as P,product_categories as C where P.p_cat_id=C.p_cat_id and products_id=$product_id";
+        $run_get_p_cat_name = mysqli_query($db, $get_p_cat_name);
+
+
+        $row_p_cat_name = mysqli_fetch_array($run_get_p_cat_name);
+
+
+        $p_cat_name = $row_p_cat_name['p_cat_title'];
+
+
+        echo "
+        
+        <div class='col-lg-6'>
+        <div class='product-pic-zoom' style='max-height:400px;margin:30px 0'>
+            <img class='product-big-img' src='img/products/$product_img1' alt='$product_title'>
+            <div class='zoom-icon'>
+                <i class='fa fa-search-plus'></i>
+            </div>
+        </div>
+        <div class='product-thumbs'>
+            <div class='product-thumbs-track ps-slider owl-carousel'>
+                <div class='pt active' data-imgbigurl='img/products/$product_img1'><img src='img/products/$product_img1' alt='$product_title'></div>
+                <div class='pt' data-imgbigurl='img/products/$product_img2'><img src='img/products/$product_img2' alt='$product_title'></div>
+              </div>
+        </div>
+    </div>
+    <div class='col-lg-6'>
+        <div class='product-details'>
+            <div class='pd-title'>
+                <h3>$product_title</h3>
+            </div>
+            <div class='pd-rating'>
+                <i class='fa fa-star'></i>
+                <i class='fa fa-star'></i>
+                <i class='fa fa-star'></i>
+                <i class='fa fa-star'></i>
+                <i class='fa fa-star-o'></i>
+                <span>(5)</span>
+            </div>
+            <div class='pd-desc'>
+                <p>$product_desc</p>
+                <h4>PKR $product_price</h4>
+            </div>
+           
+            <div class='pd-size-choose'>
+                <div class='sc-item'>
+                    <input type='radio' id='sm-size'>
+                    <label for='sm-size'>s</label>
+                </div>
+                <div class='sc-item'>
+                    <input type='radio' id='md-size'>
+                    <label for='md-size'>m</label>
+                </div>
+                <div class='sc-item'>
+                    <input type='radio' id='lg-size'>
+                    <label for='lg-size'>l</label>
+                </div>
+                <div class='sc-item'>
+                    <input type='radio' id='xl-size'>
+                    <label for='xl-size'>xs</label>
+                </div>
+            </div>
+            <div class='quantity'>
+                <div class='pro-qty'>
+                    <input type='text' value='1'>
+                </div>
+                <a href='shopping-cart.php' class='primary-btn pd-cart'>Add To Cart</a>
+            </div>
+            <ul class='pd-tags'>
+                <li><span>CATEGORY</span>: $p_cat_name</li>
+            </ul>
+            
+        </div>
+    </div>
+    </div>
+    
+    
+
+        
+        
+        
+        ";
+    }
+}

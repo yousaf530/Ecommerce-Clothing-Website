@@ -125,17 +125,12 @@ include("header.php");
             <div class="col-lg-3">
                 <div class="product-large set-bg" data-setbg="img/women-large.jpg">
                     <h2>Women’s</h2>
-                    <a href="shop.php">Discover More</a>
+                    <a href="shop.php?cat_id=2">Discover More</a>
                 </div>
             </div>
             <div class="col-lg-8 offset-lg-1">
                 <div class="filter-control">
-                    <ul>
-                        <li class="active"><a href="shop.php">Tops</a></li>
-                        <li><a href="shop.php">Jeans</a> </li>
-                        <li><a href="shop.php">Shoes</a> </li>
-                        <li><a href="shop.php">Hoodies</a> </li>
-                    </ul>
+                    <h3> Hot Products </h3>
                 </div>
                 <div class="product-slider owl-carousel">
 
@@ -157,12 +152,7 @@ include("header.php");
         <div class="row">
             <div class="col-lg-8">
                 <div class="filter-control">
-                    <ul>
-                        <li class="active">Tee-Shirts</li>
-                        <li>Shoes</li>
-                        <li>Jeans</li>
-                        <li>Hoodies</li>
-                    </ul>
+                    <h3> Hot Products </h3>
                 </div>
                 <div class="product-slider owl-carousel">
                     <?php
@@ -174,7 +164,7 @@ include("header.php");
             <div class="col-lg-3 offset-lg-1">
                 <div class="product-large set-bg m-large" data-setbg="img/men-large.jpg">
                     <h2>Men’s</h2>
-                    <a href="shop.php">Discover More</a>
+                    <a href="shop.php?cat_id=1">Discover More</a>
                 </div>
             </div>
         </div>
