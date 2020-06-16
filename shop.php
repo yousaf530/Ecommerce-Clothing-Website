@@ -85,7 +85,7 @@ include("header.php");
 
                             if (!isset($_GET['cat_id'])) {
 
-                                $per_page = 9;
+                                $per_page = 6;
 
                                 if (isset($_GET['page'])) {
                                     $page = $_GET['page'];
@@ -193,9 +193,13 @@ Last
 
                         getPcatProd();
 
+                        getcatProd();
+
+
                         ?>
 
                     </div>
+
 
                 </div>
 

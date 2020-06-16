@@ -5,7 +5,7 @@
 
     $(window).on('load', function () {
         $(".load").fadeOut();
-        $("#preload").delay(10).fadeOut("slow");
+        $("#preload").delay(100).fadeOut("slow");
     });
 
 

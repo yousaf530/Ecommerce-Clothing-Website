@@ -1024,6 +1024,10 @@ ol {
   margin-bottom: 26px;
 }
 
+.product-item .pi-pic {
+  max-height: 330px;
+}
+
 .product-item:hover .pi-pic .icon {
   top: 15px;
   opacity: 1;

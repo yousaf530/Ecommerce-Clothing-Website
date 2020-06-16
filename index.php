@@ -82,7 +82,7 @@ include("header.php");
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-4">
-                <a href="shop.php">
+                <a href='shop.php?cat_id=1'>
                     <div class="single-banner">
                         <img src="img/banner-1.png" alt="">
                         <div class="inner-text">
@@ -92,7 +92,7 @@ include("header.php");
                 </a>
             </div>
             <div class="col-lg-4">
-                <a href="shop.php">
+                <a href='shop.php?cat_id=2'>
                     <div class="single-banner">
                         <img src="img/banner-2.png" alt="">
                         <div class="inner-text">
@@ -103,7 +103,7 @@ include("header.php");
 
             </div>
             <div class="col-lg-4">
-                <a href="shop.php">
+                <a href='shop.php?cat_id=3'>
                     <div class="single-banner">
                         <img src="img/banner-3.png" alt="">
                         <div class="inner-text">
@@ -138,80 +138,11 @@ include("header.php");
                     </ul>
                 </div>
                 <div class="product-slider owl-carousel">
-                    <div class="product-item">
-                        <div class="pi-pic">
-                            <img src="img/products/women-1.png" alt="">
-                            <ul>
-                                <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                <li class="quick-view"><a href="#">+ Quick View</a></li>
-                            </ul>
-                        </div>
-                        <div class="pi-text">
-                            <div class="catagory-name">Jeans</div>
-                            <a href="#">
-                                <h5>Skinny Fit Denim</h5>
-                            </a>
-                            <div class="product-price">
-                                PKR2,499.00
-                                <span> PKR3,200.00
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-item">
-                        <div class="pi-pic">
-                            <img src="img/products/women-2.png" alt="">
-                            <ul>
-                                <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                <li class="quick-view"><a href="#">+ Quick View</a></li>
-                            </ul>
-                        </div>
-                        <div class="pi-text">
-                            <div class="catagory-name">Jeans</div>
-                            <a href="#">
-                                <h5>Wild Leg Denim</h5>
-                            </a>
-                            <div class="product-price">
-                                PKR1,829.00
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-item">
-                        <div class="pi-pic">
-                            <img src="img/products/women-3.png" alt="">
-                            <ul>
-                                <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                <li class="quick-view"><a href="#">+ Quick View</a></li>
-                            </ul>
-                        </div>
-                        <div class="pi-text">
-                            <div class="catagory-name">Tops</div>
-                            <a href="#">
-                                <h5>MIX MATERIAL TEE</h5>
-                            </a>
-                            <div class="product-price">
-                                PKR2,029.00
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-item">
-                        <div class="pi-pic">
-                            <img src="img/products/woman-4.png" alt="">
-                            <ul>
-                                <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                <li class="quick-view"><a href="#">+ Quick View</a></li>
-                            </ul>
-                        </div>
-                        <div class="pi-text">
-                            <div class="catagory-name">Tops</div>
-                            <a href="#">
-                                <h5>PRINTED TEE</h5>
-                            </a>
-                            <div class="product-price">
-                                PKR699.00
-                            </div>
-                        </div>
-                    </div>
+
+                    <?php
+                    getWProduct();
+                    ?>
+
                 </div>
             </div>
         </div>
@@ -234,81 +165,10 @@ include("header.php");
                     </ul>
                 </div>
                 <div class="product-slider owl-carousel">
-                    <div class="product-item">
-                        <div class="pi-pic">
-                            <img src="img/products/men-1.png" alt="">
-                            <ul>
-                                <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                <li class="quick-view"><a href="#">+ Quick View</a></li>
-                            </ul>
-                        </div>
-                        <div class="pi-text">
-                            <div class="catagory-name">Tee-Shirt</div>
-                            <a href="#">
-                                <h5>MEN TRENDY LONG TEE</h5>
-                            </a>
-                            <div class="product-price">
-                                PKR2,699.00
-                                <span>PKR3,500.00</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-item">
-                        <div class="pi-pic">
-                            <img src="img/products/men-2.png" alt="">
+                    <?php
+                    getMProduct();
+                    ?>
 
-                            <ul>
-                                <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                <li class="quick-view"><a href="#">+ Quick View</a></li>
-                            </ul>
-                        </div>
-                        <div class="pi-text">
-                            <div class="catagory-name">Jeans</div>
-                            <a href="#">
-                                <h5>MEN STRETCH SKINNY FIT DENIM</h5>
-                            </a>
-                            <div class="product-price">
-                                PKR1,889.00
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-item">
-                        <div class="pi-pic">
-                            <img src="img/products/men-3.png" alt="">
-
-                            <ul>
-                                <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                <li class="quick-view"><a href="#">+ Quick View</a></li>
-                            </ul>
-                        </div>
-                        <div class="pi-text">
-                            <div class="catagory-name">Shoes</div>
-                            <a href="#">
-                                <h5>MEN TERRY JOGGER</h5>
-                            </a>
-                            <div class="product-price">
-                                PKR1,749.00
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-item">
-                        <div class="pi-pic">
-                            <img src="img/products/men-4.png" alt="">
-                            <ul>
-                                <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                <li class="quick-view"><a href="#">+ Quick View</a></li>
-                            </ul>
-                        </div>
-                        <div class="pi-text">
-                            <div class="catagory-name">Tee-Shirt</div>
-                            <a href="#">
-                                <h5>MEN TRENDY GRAPHIC TEE</h5>
-                            </a>
-                            <div class="product-price">
-                                PKR849.00
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
             <div class="col-lg-3 offset-lg-1">

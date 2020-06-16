@@ -3,13 +3,13 @@
 $db = mysqli_connect('localhost', 'root', '', 'threaderz_store');
 
 
-// Retrieve Products
+// Retrieve Women Products for index slider
 
-function getProduct()
+function getWProduct()
 {
     global $db;
 
-    $get_products = "select * from products order by 1 DESC LIMIT 0,8";
+    $get_products = "select * from products where cat_id=2 order by 1 ASC LIMIT 0,4";
     $run_products = mysqli_query($db, $get_products);
 
 
@@ -23,23 +23,21 @@ function getProduct()
 
         echo "
         
-        <div class='col-lg-4 col-sm-6'>
         <div class='product-item'>
-            <div class='pi-pic' style='max-height:330px'>
-                <img src='img/products/$product_img1' alt='$product_title'>
-                <ul>
-                    <li class='w-icon active'><a href='#'><i class='icon_bag_alt'></i></a></li>
-                    <li class='quick-view'><a href='product.php?product_id=$products_id'>View Details</a></li>
-                </ul>
-            </div>
-            <div class='pi-text'>
-                <div class='catagory-name'></div>
-                <a href='product.php?product_id=$products_id'>
-                    <h5>$product_title</h5>
-                </a>
-                <div class='product-price'>
-                PKR $product_price                    
-                </div>
+        <div class='pi-pic' style='max-height:300px'>
+            <img src='img/products/$product_img1' alt='$product_title'>
+            <ul>
+                <li class='w-icon active'><a href='#'><i class='icon_bag_alt'></i></a></li>
+                <li class='quick-view'><a href='#'>View Details</a></li>
+            </ul>
+        </div>
+        <div class='pi-text'>
+            <div class='catagory-name'>Jeans</div>
+            <a href='#'>
+                <h5>$product_title</h5>
+            </a>
+            <div class='product-price'>
+                $product_price
             </div>
         </div>
     </div>
@@ -47,6 +45,50 @@ function getProduct()
     ";
     }
 }
+
+// Retrieve men Products for index slider
+
+function getMProduct()
+{
+    global $db;
+
+    $get_products = "select * from products where cat_id=1 order by 1 ASC LIMIT 0,4";
+    $run_products = mysqli_query($db, $get_products);
+
+
+
+    while ($row_products = mysqli_fetch_array($run_products)) {
+
+        $products_id = $row_products['products_id'];
+        $product_title = $row_products['product_title'];
+        $product_price = $row_products['product_price'];
+        $product_img1 = $row_products['product_img1'];
+
+        echo "
+        
+        <div class='product-item'>
+        <div class='pi-pic' style='max-height:300px'>
+            <img src='img/products/$product_img1' alt='$product_title'>
+            <ul>
+                <li class='w-icon active'><a href='#'><i class='icon_bag_alt'></i></a></li>
+                <li class='quick-view'><a href='#'>View Details</a></li>
+            </ul>
+        </div>
+        <div class='pi-text'>
+            <div class='catagory-name'>Jeans</div>
+            <a href='#'>
+                <h5>$product_title</h5>
+            </a>
+            <div class='product-price'>
+                $product_price
+            </div>
+        </div>
+    </div>
+
+    ";
+    }
+}
+
 
 // Retrieve Products Catergories
 
@@ -149,7 +191,7 @@ function getPcatProd()
         
                 <div class='col-lg-4 col-sm-6'>
                 <div class='product-item'>
-                    <div class='pi-pic' style='max-height:330px'>
+                    <div class='pi-pic' style='max-height:300px'>
                         <img src='img/products/$product_img1' alt='$product_title'>
                         <ul>
                             <li class='w-icon active'><a href='#'><i class='icon_bag_alt'></i></a></li>
@@ -179,19 +221,19 @@ function getcatProd()
 {
     global $db;
 
-    if (isset($_GET['p_cat_id'])) {
+    if (isset($_GET['cat_id'])) {
 
-        $p_cat_id = $_GET['p_cat_id'];
+        $cat_id = $_GET['cat_id'];
 
-        $get_p_cat = "select * from product_categories where p_cat_id='$p_cat_id'";
-        $run_p_cat = mysqli_query($db, $get_p_cat);
+        $get_cat = "select * from category where cat_id='$cat_id'";
+        $run_cat = mysqli_query($db, $get_cat);
 
-        $row_p_cat = mysqli_fetch_array($run_p_cat);
+        $row_cat = mysqli_fetch_array($run_cat);
 
-        $p_cat_title = $row_p_cat['p_cat_title'];
-        $p_cat_desc = $row_p_cat['p_cat_desc'];
+        $p_cat_title = $row_cat['cat_title'];
+        $p_cat_desc = $row_cat['cat_desc'];
 
-        $get_products = "select * from products where p_cat_id='$p_cat_id'";
+        $get_products = "select * from products where cat_id='$cat_id'";
         $run_products = mysqli_query($db, $get_products);
 
         $count = mysqli_num_rows($run_products);
@@ -223,7 +265,7 @@ function getcatProd()
         
                 <div class='col-lg-4 col-sm-6'>
                 <div class='product-item'>
-                    <div class='pi-pic' style='max-height:330px'>
+                    <div class='pi-pic' style='max-height:300px'>
                         <img src='img/products/$product_img1' alt='$product_title'>
                         <ul>
                             <li class='w-icon active'><a href='#'><i class='icon_bag_alt'></i></a></li>
