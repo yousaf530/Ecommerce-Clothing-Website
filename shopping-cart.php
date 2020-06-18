@@ -35,7 +35,7 @@ include('header.php');
                                 <th>Price</th>
                                 <th>Quantity</th>
                                 <th>Total</th>
-                                <th><i class="ti-close"></i></th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -46,8 +46,8 @@ include('header.php');
                 <div class="row">
                     <div class="col-lg-4">
                         <div class="cart-buttons">
-                            <a href="#" class="primary-btn continue-shop">Continue shopping</a>
-                            <a href="#" class="primary-btn up-cart">Update cart</a>
+                            <a href="shop.php" class="primary-btn continue-shop">Continue shopping</a>
+                            <a href="shopping-cart.php" class="primary-btn up-cart">Update cart</a>
                         </div>
 
                     </div>

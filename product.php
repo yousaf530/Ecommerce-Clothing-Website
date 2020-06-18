@@ -66,7 +66,7 @@ include('header.php');
                             <!-- form-group Begin -->
                             <div class='pd-size-choose'>
                                 <div class='sc-item'>
-                                    <input type='radio' id='sm-size' class="form-control" name='size' value="Small" required>
+                                    <input type='radio' id='sm-size' class="form-control" name='size' value="Small" required novalidate>
                                     <label for='sm-size'>s</label>
                                 </div>
                                 <div class='sc-item'>
@@ -303,20 +303,15 @@ include('footer.php');
 <script>
     $("#cartbtn").on('click', function() {
         var atLeastOneChecked = false;
-        $("input[type=radio]").each(function() {
-            console.log($(this).attr("checked"));
-            // If radio button not checked 
-            // display alert message  
-            if ($(this).attr("checked") != "checked") {
+        if (!$("input[name='size']").is(':checked')) {
 
-                // Alert message by displaying 
-                // error message 
-                $("#msg").html(
-                    "<span class='alert alert-danger'>" + 
-                    "Please Choose Size </span>");
-            }
+            $("#msg").html(
+                "<span class='alert alert-danger'>" +
+                "Please Choose Size </span>");
+        } else {
+           return;
+        }
 
-        });
     });
 </script>
 

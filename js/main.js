@@ -75,34 +75,9 @@
         }
     });
 
-    /*------------------
-       logo Carousel
-    --------------------*/
-    $(".logo-carousel").owlCarousel({
-        loop: false,
-        margin: 30,
-        nav: false,
-        items: 5,
-        dots: false,
-        navText: ['<i class="ti-angle-left"></i>', '<i class="ti-angle-right"></i>'],
-        smartSpeed: 1200,
-        autoHeight: false,
-        mouseDrag: false,
-        autoplay: true,
-        responsive: {
-            0: {
-                items: 3,
-            },
-            768: {
-                items: 5,
-            }
-        }
-    });
+    //    Product Single Slider
 
-    /*-----------------------
-       Product Single Slider
-    -------------------------*/
-    $(".ps-slider").owlCarousel({
+       $(".ps-slider").owlCarousel({
         loop: false,
         margin: 10,
         nav: true,
@@ -115,10 +90,9 @@
     });
 
 
-    /*-------------------
-		Range Slider
-	--------------------- */
-    var rangeSlider = $(".price-range"),
+		// Range Slider
+
+        var rangeSlider = $(".price-range"),
         minamount = $("#minamount"),
         maxamount = $("#maxamount"),
         minPrice = rangeSlider.data('min'),
@@ -189,3 +163,5 @@
 
 
 })(jQuery);
+
+

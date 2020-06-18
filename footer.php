@@ -1,7 +1,7 @@
 <!-- Footer Section Begin -->
 <footer class="footer-section">
         <div class="container">
-            <div class="row">
+            <div class="row" style="padding-bottom: 40px;">
                 <div class="col-lg-3">
                     <div class="footer-left">
                         <div class="footer-logo">

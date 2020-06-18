@@ -33,7 +33,7 @@ function addCart()
         $qty = $_POST['product_qty'];
         $size = $_POST['size'];
 
-        $check_product = "select * from cart where ip_add = '$ip_add' AND p_id = '$p_id'";
+        $check_product = "select * from cart where ip_add = '$ip_add' AND products_id = '$p_id'";
         $run_check = mysqli_query($db, $check_product);
 
 
@@ -376,8 +376,8 @@ function getProd()
 
         echo "
         
-        <div class='col-lg-6'>
-        <div class='product-pic-zoom' style='max-height:400px;margin: 0 0 30px 0'>
+        <div class='col-lg-6 col-12' style='margin:0 auto'>
+        <div class='product-pic-zoom  col-md-8' style='max-height:400px;margin: 0 0 30px 0'>
             <img class='product-big-img' src='img/products/$product_img1' alt='$product_title'>
             <div class='zoom-icon'>
                 <i class='fa fa-search-plus'></i>
@@ -391,7 +391,7 @@ function getProd()
         </div>
     </div>
     <div class='col-lg-6'>
-        <div class='product-details'>
+        <div class='product-details' >
             <div class='pd-title'>
                 <h3>$product_title</h3>
             </div>
