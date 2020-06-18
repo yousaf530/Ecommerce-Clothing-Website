@@ -3,6 +3,59 @@
 $db = mysqli_connect('localhost', 'root', '', 'threaderz_store');
 
 
+function getRealIpUser()
+{
+
+    switch (true) {
+
+        case (!empty($_SERVER['HTTP_X_REAL_IP'])):
+            return $_SERVER['HTTP_X_REAL_IP'];
+        case (!empty($_SERVER['HTTP_CLIENT_IP'])):
+            return $_SERVER['HTTP_CLIENT_IP'];
+        case (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])):
+            return $_SERVER['HTTP_X_FORWARDED_FOR'];
+
+        default:
+            return $_SERVER['REMOTE_ADDR'];
+    }
+}
+
+
+function addCart()
+{
+
+    global $db;
+
+    if (isset($_GET['add_cart'])) {
+        $ip_add = getRealIpUser();
+
+        $p_id = $_GET['add_cart'];
+        $qty = $_POST['product_qty'];
+        $size = $_POST['size'];
+
+        $check_product = "select * from cart where ip_add = '$ip_add' AND p_id = '$p_id'";
+        $run_check = mysqli_query($db, $check_product);
+
+
+        if (mysqli_num_rows($run_check) > 0) {
+
+            echo "<script>alert('Product already added.')</script>";
+            echo "<script>window.open('product.php?pro_id=$p_id','_self')</script>";
+        } else {
+
+            $query = "Insert into cart (products_id, ip_add,qty,size) values('$p_id','$ip_add','$qty','$size') ";
+            $run_query = mysqli_query($db, $query);
+
+            echo "<script>window.open('product.php?product_id=$p_id','_self')</script>";
+
+            // echo "<script>alert('Product added to Cart. Keep Shopping.')</script>";
+
+
+        }
+    }
+}
+
+
 // Retrieve Women Products for index slider
 
 function getWProduct()
@@ -356,44 +409,72 @@ function getProd()
                 <p>$product_desc</p>
                 <h4>PKR $product_price</h4>
             </div>
-           
-            <div class='pd-size-choose'>
-                <div class='sc-item'>
-                    <input type='radio' id='sm-size'>
-                    <label for='sm-size'>s</label>
-                </div>
-                <div class='sc-item'>
-                    <input type='radio' id='md-size'>
-                    <label for='md-size'>m</label>
-                </div>
-                <div class='sc-item'>
-                    <input type='radio' id='lg-size'>
-                    <label for='lg-size'>l</label>
-                </div>
-                <div class='sc-item'>
-                    <input type='radio' id='xl-size'>
-                    <label for='xl-size'>xs</label>
-                </div>
-            </div>
-            <div class='quantity'>
-                <div class='pro-qty'>
-                    <input type='text' value='1'>
-                </div>
-                <a href='shopping-cart.php' class='primary-btn pd-cart'>Add To Cart</a>
-            </div>
+
             <ul class='pd-tags'>
                 <li><span>CATEGORY</span>: $p_cat_name</li>
             </ul>
-            
-        </div>
-    </div>
-    </div>
     
-    
+        ";
+    }
+}
 
-        
-        
+
+function relatedProducts()
+{
+    global $db;
+
+    if (isset($_GET['product_id'])) {
+
+        $product_id = $_GET['product_id'];
+
+
+        $get_p_cat_id = "select C.p_cat_id,C.p_cat_title from products as P,product_categories as C where P.p_cat_id=C.p_cat_id and products_id=$product_id";
+        $run_get_p_cat_id = mysqli_query($db, $get_p_cat_id);
+
+        $row_p_cat_id = mysqli_fetch_array($run_get_p_cat_id);
+
+        $pcat_id = $row_p_cat_id['p_cat_id'];
+
+        $get_r_products = "select * from products where p_cat_id=$pcat_id LIMIT 1,4";
+        $run_get_r_products = mysqli_query($db, $get_r_products);
+
+
+        while ($row_get_r_products = mysqli_fetch_array($run_get_r_products)) {
+
+
+
+            $p_id = $row_get_r_products['products_id'];
+            $p_name = $row_get_r_products['product_title'];
+            $p_img1 = $row_get_r_products['product_img1'];
+            $p_price = $row_get_r_products['product_price'];
+
+
+            if ($p_id != $product_id) {
+                echo "
+
+
+        <div class='col-lg-3 col-sm-6'>
+            <div class='product-item' >
+                <div class='pi-pic' style='max-height:300px'>
+                    <img src='img/products/$p_img1' alt=''>
+                    <ul>
+                        <li class='w-icon active'><a href='#'><i class='icon_bag_alt'></i></a></li>
+                        <li class='quick-view'><a href='product.php?product_id=$p_id'>View Details</a></li>
+                    </ul>
+                </div>
+                <div class='pi-text'>
+                    <a href='#'>
+                        <h5>$p_name</h5>
+                    </a>
+                    <div class='product-price'>
+                        PKR $p_price
+                    </div>
+                </div>
+            </div>
+        </div>
         
         ";
+            }
+        }
     }
 }

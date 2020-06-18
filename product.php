@@ -11,9 +11,9 @@ include('header.php');
         <div class="row">
             <div class="col-lg-12">
                 <div class="breadcrumb-text product-more">
-                    <a href="index.php"><i class="fa fa-    home"></i> Home</a>
+                    <a href="index.php"><i class="fa fa-home"></i> Home</a>
                     <a href="shop.php">Shop</a>
-                    <span>Detail</span>
+                    <span>Details</span>
                 </div>
             </div>
         </div>
@@ -42,14 +42,58 @@ include('header.php');
                     <?php
 
                     getProd();
+                    addCart();
 
                     ?>
 
 
+
+                    <form action='product.php?add_cart=<?php if (isset($_GET['product_id'])) {
+                                                            $product_id = $_GET['product_id'];
+                                                            echo $product_id;
+                                                        } ?>' method='post'>
+
+                        <div class="form-group">
+                            <!-- form-group Begin -->
+                            <div class='quantity'>
+                                <div class='pro-qty'>
+                                    <input type='text' value='1' name="product_qty">
+                                </div>
+                            </div>
+                        </div><!-- form-group Finish -->
+
+                        <div class="form-group">
+                            <!-- form-group Begin -->
+                            <div class='pd-size-choose'>
+                                <div class='sc-item'>
+                                    <input type='radio' id='sm-size' name='size' value="Small" required>
+                                    <label for='sm-size'>s</label>
+                                </div>
+                                <div class='sc-item'>
+                                    <input type='radio' id='md-size' name='size' value="Medium">
+                                    <label for='md-size'>m</label>
+                                </div>
+                                <div class='sc-item'>
+                                    <input type='radio' id='lg-size' name='size' value="Large">
+                                    <label for='lg-size'>l</label>
+                                </div>
+                                <div class='sc-item'>
+                                    <input type='radio' id='xl-size' name='size' value="XL">
+                                    <label for='xl-size'>xl</label>
+                                </div>
+                            </div>
+                            <span id="msg"></span>
+                        </div><!-- form-group Finish -->
+                        <button class='primary-btn pd-cart' id="cartbtn"> Add to cart</button>
+                    </form>
+
                 </div>
+            </div>
+        </div>
+    </div>
 
 
-                <!-- <div class="product-tab">
+    <!-- <div class="product-tab">
                     <div class="tab-item">
                         <ul class="nav" role="tablist">
                             <li>
@@ -214,27 +258,33 @@ include('header.php');
                         </div>
                     </div>
                 </div> -->
-            </div>
-        </div>
+    </div>
+    </div>
     </div>
 </section>
 
 
-<!-- 
 <div class="related-products spad">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
                 <div class="section-title">
-                    <h2>Related Products</h2>
+                    <h2>More like this</h2>
                 </div>
             </div>
         </div>
+
         <div class="row">
-            <div class="col-lg-3 col-sm-6">
+
+            <?php
+
+            relatedProducts();
+            ?>
+
+            <!-- <div class="col-lg-3 col-sm-6">
                 <div class="product-item">
                     <div class="pi-pic">
-                        <img src="img/products/women-1.jpg" alt="">
+                        <img src="img/products/grey-man-1.jpg" alt="">
                         <div class="sale">Sale</div>
                         <div class="icon">
                             <i class="icon_heart_alt"></i>
@@ -256,82 +306,11 @@ include('header.php');
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-                <div class="product-item">
-                    <div class="pi-pic">
-                        <img src="img/products/women-2.jpg" alt="">
-                        <div class="icon">
-                            <i class="icon_heart_alt"></i>
-                        </div>
-                        <ul>
-                            <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                            <li class="quick-view"><a href="#">+ Quick View</a></li>
-                            <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="pi-text">
-                        <div class="catagory-name">Shoes</div>
-                        <a href="#">
-                            <h5>Guangzhou sweater</h5>
-                        </a>
-                        <div class="product-price">
-                            $13.00
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-                <div class="product-item">
-                    <div class="pi-pic">
-                        <img src="img/products/women-3.jpg" alt="">
-                        <div class="icon">
-                            <i class="icon_heart_alt"></i>
-                        </div>
-                        <ul>
-                            <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                            <li class="quick-view"><a href="#">+ Quick View</a></li>
-                            <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="pi-text">
-                        <div class="catagory-name">Towel</div>
-                        <a href="#">
-                            <h5>Pure Pineapple</h5>
-                        </a>
-                        <div class="product-price">
-                            $34.00
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-                <div class="product-item">
-                    <div class="pi-pic">
-                        <img src="img/products/women-4.jpg" alt="">
-                        <div class="icon">
-                            <i class="icon_heart_alt"></i>
-                        </div>
-                        <ul>
-                            <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                            <li class="quick-view"><a href="#">+ Quick View</a></li>
-                            <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="pi-text">
-                        <div class="catagory-name">Towel</div>
-                        <a href="#">
-                            <h5>Converse Shoes</h5>
-                        </a>
-                        <div class="product-price">
-                            $34.00
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </div> -->
+
         </div>
     </div>
-</div> -->
+</div>
 
 
 <?php
@@ -348,6 +327,26 @@ include('footer.php');
 <script src="js/jquery.slicknav.js"></script>
 <script src="js/owl.carousel.min.js"></script>
 <script src="js/main.js"></script>
+<script>
+    $("#cartbtn").on('click', function() {
+        window.alert('hi');
+        var atLeastOneChecked = false;
+        $("input[type=radio]").each(function() {
+
+            // If radio button not checked 
+            // display alert message  
+            if ($(this).attr("checked") != "checked") {
+
+                // Alert message by displaying 
+                // error message 
+                $("#msg").html(
+                    "<span class='alert alert-danger' id='error'>" +
+                    "Please Choose Size</span>");
+            }
+        });
+    });
+</script>
+
 </body>
 
 </html>

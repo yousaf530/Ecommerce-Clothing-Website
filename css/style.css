@@ -1929,6 +1929,8 @@ ol {
 }
 
 .product-details .quantity .primary-btn.pd-cart {
+  outline: none;
+  border: none;
   padding: 14px 70px 10px;
 }
 

@@ -14,6 +14,13 @@
         $(this).css('background-image', 'url(' + bg + ')');
     });
 
+
+
+
+    // On clicking submit do following 
+    
+
+
     /*------------------
 		Navigation
 	--------------------*/
@@ -179,5 +186,6 @@
         }
         $button.parent().find('input').val(newVal);
     });
+
 
 })(jQuery);
