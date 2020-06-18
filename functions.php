@@ -46,11 +46,9 @@ function addCart()
             $query = "Insert into cart (products_id, ip_add,qty,size) values('$p_id','$ip_add','$qty','$size') ";
             $run_query = mysqli_query($db, $query);
 
+
+            echo "<script>alert('Product added to Cart. Keep Shopping.')</script>";
             echo "<script>window.open('product.php?product_id=$p_id','_self')</script>";
-
-            // echo "<script>alert('Product added to Cart. Keep Shopping.')</script>";
-
-
         }
     }
 }
@@ -379,7 +377,7 @@ function getProd()
         echo "
         
         <div class='col-lg-6'>
-        <div class='product-pic-zoom' style='max-height:400px;margin:30px 0'>
+        <div class='product-pic-zoom' style='max-height:400px;margin: 0 0 30px 0'>
             <img class='product-big-img' src='img/products/$product_img1' alt='$product_title'>
             <div class='zoom-icon'>
                 <i class='fa fa-search-plus'></i>
@@ -476,5 +474,147 @@ function relatedProducts()
         ";
             }
         }
+    }
+}
+
+
+function items()
+{
+
+    global $db;
+
+    $ip_add = getRealIpUser();
+
+    $get_items = "select * from cart where ip_add = '$ip_add'";
+    $run_items = mysqli_query($db, $get_items);
+
+    $count_items = mysqli_num_rows($run_items);
+
+    echo $count_items;
+}
+
+
+function total_price()
+{
+
+    global $db;
+
+    $ip_add = getRealIpUser();
+
+    $total = 0;
+
+    $get_items = "select * from cart where ip_add = '$ip_add'";
+    $run_items = mysqli_query($db, $get_items);
+
+
+    while ($row_items = mysqli_fetch_array($run_items)) {
+        $p_id = $row_items['products_id'];
+        $pro_qty = $row_items['qty'];
+
+        $get_price = "select * from products where products_id = '$p_id'";
+        $run_price = mysqli_query($db, $get_price);
+
+        while ($row_price = mysqli_fetch_array($run_price)) {
+
+            $sub_price = $row_price['product_price'] * $pro_qty;
+            $total += $sub_price;
+        }
+    }
+    echo "PKR " . $total;
+}
+
+
+function cart_items()
+{
+
+    global $db;
+
+    $ip_add = getRealIpUser();
+
+
+    $get_items = "select * from cart where ip_add = '$ip_add'";
+    $run_items = mysqli_query($db, $get_items);
+
+
+    while ($row_items = mysqli_fetch_array($run_items)) {
+        $p_id = $row_items['products_id'];
+        $pro_qty = $row_items['qty'];
+
+        $get_item = "select * from products where products_id = '$p_id' ORDER BY date DESC";
+        $run_item = mysqli_query($db, $get_item);
+
+        while ($row_item = mysqli_fetch_array($run_item)) {
+
+            $pro_name = $row_item['product_title'];
+            $pro_price = $row_item['product_price'];
+            $pro_img1 = $row_item['product_img1'];
+
+            $pro_total_p = $pro_price * $pro_qty;
+        }
+
+        echo "
+    
+        <tr style='border-bottom: 0.5px solid #ebebeb'>
+           <td class='cart-pic first-row'><img src='img/products/$pro_img1' alt='$pro_name' style='max-height:100px'></td>
+           <td class='cart-title first-row'>
+               <h5>$pro_name</h5>
+           </td>
+           <td class='p-price first-row'>PKR $pro_price</td>
+           <td class='qua-col first-row'>
+               <div class='quantity'>
+                   <div class='pro-qty'>
+                       <input type='text' value='$pro_qty'>
+                   </div>
+               </div>
+           </td>
+           <td class='total-price first-row'>PKR $pro_total_p</td>
+           <td class='close-td first-row'><i class='ti-close'></i></td>
+       </tr>    
+   ";
+    }
+}
+
+function cart_icon_prod()
+{
+
+    global $db;
+
+    $ip_add = getRealIpUser();
+
+
+    $get_items = "select * from cart where ip_add = '$ip_add' LIMIT 0,2";
+    $run_items = mysqli_query($db, $get_items);
+
+
+    while ($row_items = mysqli_fetch_array($run_items)) {
+        $p_id = $row_items['products_id'];
+        $pro_qty = $row_items['qty'];
+
+        $get_item = "select * from products where products_id = '$p_id' ORDER BY date DESC ";
+        $run_item = mysqli_query($db, $get_item);
+
+        while ($row_item = mysqli_fetch_array($run_item)) {
+
+            $pro_name = $row_item['product_title'];
+            $pro_price = $row_item['product_price'];
+            $pro_img1 = $row_item['product_img1'];
+
+            $pro_total_p = $pro_price * $pro_qty;
+        }
+
+        echo "
+        <tr>
+        <td class='si-pic'><img src='img/products/$pro_img1' alt='$pro_name' style='max-height:70px'></td>
+        <td class='si-text'>
+            <div class='product-selected'>
+                <p>PKR $pro_price x $pro_qty</p>
+                <h6>$pro_name</h6>
+            </div>
+        </td>
+        <td class='si-close'>
+            <i class='ti-close'></i>
+        </td>
+    </tr>
+    ";
     }
 }

@@ -87,15 +87,17 @@ include('db.php');
                     <div class="col-md-3 text-right ">
                         <ul class="nav-right">
                             <li class="cart-icon">
-                                <a href="files/shopping-cart.php">
+                                <a href="shopping-cart.php">
                                     <i class="icon_bag_alt"></i>
-                                    <span>2</span>
+                                    <span><?php items(); ?></span>
                                 </a>
                                 <div class="cart-hover">
                                     <div class="select-items">
                                         <table>
                                             <tbody>
-                                                <tr>
+
+                                                <?php cart_icon_prod(); ?>
+                                                <!-- <tr>
                                                     <td class="si-pic"><img src="img/select-product-1.jpg" alt=""></td>
                                                     <td class="si-text">
                                                         <div class="product-selected">
@@ -106,25 +108,13 @@ include('db.php');
                                                     <td class="si-close">
                                                         <i class="ti-close"></i>
                                                     </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="si-pic"><img src="img/select-product-2.jpg" alt=""></td>
-                                                    <td class="si-text">
-                                                        <div class="product-selected">
-                                                            <p>$60.00 x 1</p>
-                                                            <h6>Kabino Bedside Table</h6>
-                                                        </div>
-                                                    </td>
-                                                    <td class="si-close">
-                                                        <i class="ti-close"></i>
-                                                    </td>
-                                                </tr>
+                                                </tr> -->
                                             </tbody>
                                         </table>
                                     </div>
                                     <div class="select-total">
                                         <span>total:</span>
-                                        <h5></h5>
+                                        <h5><?php total_price(); ?></h5>
                                     </div>
                                     <div class="select-button">
                                         <a href="shopping-cart.php" class="primary-btn view-card">VIEW CART</a>
@@ -132,7 +122,7 @@ include('db.php');
                                     </div>
                                 </div>
                             </li>
-                            <li class="cart-price">$60.00</li>
+                            <li class="cart-price"><?php total_price(); ?></li>
                         </ul>
                     </div>
                 </div>

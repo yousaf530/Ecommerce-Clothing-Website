@@ -11,8 +11,8 @@ include('header.php');
         <div class="row">
             <div class="col-lg-12">
                 <div class="breadcrumb-text product-more">
-                    <a href="./home.html"><i class="fa fa-home"></i> Home</a>
-                    <a href="./shop.html">Shop</a>
+                    <a href="index.php"><i class="fa fa-home"></i> Home</a>
+                    <a href="shop.php">Shop</a>
                     <span>Shopping Cart</span>
                 </div>
             </div>
@@ -39,54 +39,7 @@ include('header.php');
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td class="cart-pic first-row"><img src="img/cart-page/product-1.jpg" alt=""></td>
-                                <td class="cart-title first-row">
-                                    <h5>Pure Pineapple</h5>
-                                </td>
-                                <td class="p-price first-row">$60.00</td>
-                                <td class="qua-col first-row">
-                                    <div class="quantity">
-                                        <div class="pro-qty">
-                                            <input type="text" value="1">
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="total-price first-row">$60.00</td>
-                                <td class="close-td first-row"><i class="ti-close"></i></td>
-                            </tr>
-                            <tr>
-                                <td class="cart-pic"><img src="img/cart-page/product-2.jpg" alt=""></td>
-                                <td class="cart-title">
-                                    <h5>American lobster</h5>
-                                </td>
-                                <td class="p-price">$60.00</td>
-                                <td class="qua-col">
-                                    <div class="quantity">
-                                        <div class="pro-qty">
-                                            <input type="text" value="1">
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="total-price">$60.00</td>
-                                <td class="close-td"><i class="ti-close"></i></td>
-                            </tr>
-                            <tr>
-                                <td class="cart-pic"><img src="img/cart-page/product-3.jpg" alt=""></td>
-                                <td class="cart-title">
-                                    <h5>Guangzhou sweater</h5>
-                                </td>
-                                <td class="p-price">$60.00</td>
-                                <td class="qua-col">
-                                    <div class="quantity">
-                                        <div class="pro-qty">
-                                            <input type="text" value="1">
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="total-price">$60.00</td>
-                                <td class="close-td"><i class="ti-close"></i></td>
-                            </tr>
+                           <?php cart_items(); ?>
                         </tbody>
                     </table>
                 </div>
@@ -96,21 +49,15 @@ include('header.php');
                             <a href="#" class="primary-btn continue-shop">Continue shopping</a>
                             <a href="#" class="primary-btn up-cart">Update cart</a>
                         </div>
-                        <div class="discount-coupon">
-                            <h6>Discount Codes</h6>
-                            <form action="#" class="coupon-form">
-                                <input type="text" placeholder="Enter your codes">
-                                <button type="submit" class="site-btn coupon-btn">Apply</button>
-                            </form>
-                        </div>
+
                     </div>
                     <div class="col-lg-4 offset-lg-4">
                         <div class="proceed-checkout">
                             <ul>
-                                <li class="subtotal">Subtotal <span>$240.00</span></li>
-                                <li class="cart-total">Total <span>$240.00</span></li>
+                                <li class="subtotal">Subtotal <span><?php total_price() ?></span></li>
+                                <li class="cart-total">Total <span><?php total_price() ?></span></li>
                             </ul>
-                            <a href="#" class="proceed-btn">PROCEED TO CHECK OUT</a>
+                            <a href="check-out.php" class="proceed-btn">PROCEED TO CHECK OUT</a>
                         </div>
                     </div>
                 </div>

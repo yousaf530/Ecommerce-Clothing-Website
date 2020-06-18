@@ -280,7 +280,7 @@ include('header.php');
 
             relatedProducts();
             ?>
-            
+
         </div>
     </div>
 </div>
@@ -315,9 +315,8 @@ include('footer.php');
                     "<span class='alert alert-danger' id='error'>" +
                     "Please Choose Size</span>");
             }
+           
         });
-        window.alert('Product added to Cart');
-
     });
 </script>
 
