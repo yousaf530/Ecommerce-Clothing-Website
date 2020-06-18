@@ -66,25 +66,25 @@ include('header.php');
                             <!-- form-group Begin -->
                             <div class='pd-size-choose'>
                                 <div class='sc-item'>
-                                    <input type='radio' id='sm-size' name='size' value="Small" required>
+                                    <input type='radio' id='sm-size' class="form-control" name='size' value="Small" required>
                                     <label for='sm-size'>s</label>
                                 </div>
                                 <div class='sc-item'>
-                                    <input type='radio' id='md-size' name='size' value="Medium">
+                                    <input type='radio' id='md-size' class="form-control" name='size' value="Medium">
                                     <label for='md-size'>m</label>
                                 </div>
                                 <div class='sc-item'>
-                                    <input type='radio' id='lg-size' name='size' value="Large">
+                                    <input type='radio' id='lg-size' class="form-control" name='size' value="Large">
                                     <label for='lg-size'>l</label>
                                 </div>
                                 <div class='sc-item'>
-                                    <input type='radio' id='xl-size' name='size' value="XL">
+                                    <input type='radio' id='xl-size' class="form-control" name='size' value="XL">
                                     <label for='xl-size'>xl</label>
                                 </div>
                             </div>
-                            <span id="msg"></span>
+                            <p id="msg"></p>
                         </div><!-- form-group Finish -->
-                        <button class='primary-btn pd-cart' id="cartbtn"> Add to cart</button>
+                        <button class='btn primary-btn pd-cart' id="cartbtn" style="margin-top: 20px;"> Add to cart</button>
                     </form>
 
                 </div>
@@ -304,7 +304,7 @@ include('footer.php');
     $("#cartbtn").on('click', function() {
         var atLeastOneChecked = false;
         $("input[type=radio]").each(function() {
-
+            console.log($(this).attr("checked"));
             // If radio button not checked 
             // display alert message  
             if ($(this).attr("checked") != "checked") {
@@ -312,10 +312,10 @@ include('footer.php');
                 // Alert message by displaying 
                 // error message 
                 $("#msg").html(
-                    "<span class='alert alert-danger' id='error'>" +
-                    "Please Choose Size</span>");
+                    "<span class='alert alert-danger'>" + 
+                    "Please Choose Size </span>");
             }
-           
+
         });
     });
 </script>

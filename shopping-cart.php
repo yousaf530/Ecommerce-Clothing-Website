@@ -28,7 +28,7 @@ include('header.php');
             <div class="col-lg-12">
                 <div class="cart-table">
                     <table>
-                        <thead>
+                        <thead style="font-size: larger;">
                             <tr>
                                 <th>Image</th>
                                 <th class="p-name">Product Name</th>

@@ -111,7 +111,7 @@ include("header.php");
                                     
                                     <div class='col-lg-4 col-sm-6'>
                                     <div class='product-item'>
-                                        <div class='pi-pic' style='max-height:330px'>
+                                        <div class='pi-pic' style='max-height:350px'>
                                             <img src='img/products/$product_img1' alt='$product_title'>
                                             <ul>
                                                 <li class='w-icon active'><a href='#'><i class='icon_bag_alt'></i></a></li>

@@ -43,7 +43,7 @@ function addCart()
             echo "<script>window.open('product.php?pro_id=$p_id','_self')</script>";
         } else {
 
-            $query = "Insert into cart (products_id, ip_add,qty,size) values('$p_id','$ip_add','$qty','$size') ";
+            $query = "Insert into cart (products_id, ip_add,qty,size,date) values('$p_id','$ip_add','$qty','$size',NOW())";
             $run_query = mysqli_query($db, $query);
 
 
@@ -60,7 +60,7 @@ function getWProduct()
 {
     global $db;
 
-    $get_products = "select * from products where cat_id=2 order by 1 ASC LIMIT 0,4";
+    $get_products = "select * from products where cat_id=2 order by RAND() LIMIT 7";
     $run_products = mysqli_query($db, $get_products);
 
 
@@ -106,7 +106,7 @@ function getMProduct()
 {
     global $db;
 
-    $get_products = "select * from products where cat_id=1 order by 1 ASC LIMIT 0,4";
+    $get_products = "select * from products where cat_id=1 order by RAND() LIMIT 7";
     $run_products = mysqli_query($db, $get_products);
 
 
@@ -245,7 +245,7 @@ function getPcatProd()
         
                 <div class='col-lg-4 col-sm-6'>
                 <div class='product-item'>
-                    <div class='pi-pic' style='max-height:300px'>
+                    <div class='pi-pic' style='max-height:350px'>
                         <img src='img/products/$product_img1' alt='$product_title'>
                         <ul>
                             <li class='w-icon active'><a href='#'><i class='icon_bag_alt'></i></a></li>
@@ -319,7 +319,7 @@ function getcatProd()
         
                 <div class='col-lg-4 col-sm-6'>
                 <div class='product-item'>
-                    <div class='pi-pic' style='max-height:300px'>
+                    <div class='pi-pic' style='max-height:350px'>
                         <img src='img/products/$product_img1' alt='$product_title'>
                         <ul>
                             <li class='w-icon active'><a href='#'><i class='icon_bag_alt'></i></a></li>
@@ -532,7 +532,7 @@ function cart_items()
     $ip_add = getRealIpUser();
 
 
-    $get_items = "select * from cart where ip_add = '$ip_add'";
+    $get_items = "select * from cart where ip_add = '$ip_add' ORDER BY date DESC";
     $run_items = mysqli_query($db, $get_items);
 
 
@@ -540,11 +540,12 @@ function cart_items()
         $p_id = $row_items['products_id'];
         $pro_qty = $row_items['qty'];
 
-        $get_item = "select * from products where products_id = '$p_id' ORDER BY date DESC";
+        $get_item = "select * from products where products_id = '$p_id'";
         $run_item = mysqli_query($db, $get_item);
 
         while ($row_item = mysqli_fetch_array($run_item)) {
 
+            $pro_id = $row_item['products_id'];
             $pro_name = $row_item['product_title'];
             $pro_price = $row_item['product_price'];
             $pro_img1 = $row_item['product_img1'];
@@ -557,7 +558,7 @@ function cart_items()
         <tr style='border-bottom: 0.5px solid #ebebeb'>
            <td class='cart-pic first-row'><img src='img/products/$pro_img1' alt='$pro_name' style='max-height:100px'></td>
            <td class='cart-title first-row'>
-               <h5>$pro_name</h5>
+               <h5><a href='product.php?product_id=$pro_id' style='color:black;font-weight:bold'>$pro_name</h5>
            </td>
            <td class='p-price first-row'>PKR $pro_price</td>
            <td class='qua-col first-row'>
@@ -582,7 +583,7 @@ function cart_icon_prod()
     $ip_add = getRealIpUser();
 
 
-    $get_items = "select * from cart where ip_add = '$ip_add' LIMIT 0,2";
+    $get_items = "select * from cart where ip_add = '$ip_add'ORDER BY date DESC LIMIT 0,2";
     $run_items = mysqli_query($db, $get_items);
 
 
@@ -590,7 +591,7 @@ function cart_icon_prod()
         $p_id = $row_items['products_id'];
         $pro_qty = $row_items['qty'];
 
-        $get_item = "select * from products where products_id = '$p_id' ORDER BY date DESC ";
+        $get_item = "select * from products where products_id = '$p_id' ORDER BY date DESC";
         $run_item = mysqli_query($db, $get_item);
 
         while ($row_item = mysqli_fetch_array($run_item)) {

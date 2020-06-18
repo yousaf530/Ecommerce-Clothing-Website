@@ -117,7 +117,7 @@ include('db.php');
                                         <h5><?php total_price(); ?></h5>
                                     </div>
                                     <div class="select-button">
-                                        <a href="shopping-cart.php" class="primary-btn view-card">VIEW CART</a>
+                                        <a href="shopping-cart.php" class="primary-btn view-card">VIEW ALL ITEMS</a>
                                         <a href="check-out.php" class="primary-btn checkout-btn">CHECK OUT</a>
                                     </div>
                                 </div>
