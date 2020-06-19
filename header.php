@@ -83,7 +83,7 @@ include('db.php');
                         </div>
                     </div>
 
-                    <div class="col-md-3 text-right" style="display: <?php if($active == 'Register' || $active == 'Login'){echo 'none';};  ?>;">
+                    <div class="col-md-3 text-right" style="visibility: <?php if($active == 'Register' || $active == 'Login'){echo 'hidden';};  ?>;">
                         <ul class="nav-right">
                             <li class="cart-icon">
                                 <a href="shopping-cart.php">
