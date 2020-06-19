@@ -2,31 +2,29 @@
 
 (function ($) {
 
-
+    // Screen Pre Loader
     $(window).on('load', function () {
         $(".load").fadeOut();
         $("#preload").delay(100).fadeOut("slow");
     });
 
+    // Background Image Set
 
     $('.set-bg').each(function () {
         var bg = $(this).data('setbg');
         $(this).css('background-image', 'url(' + bg + ')');
     });
 
+    //	Mobile Navigation    
 
-
-    /*------------------
-		Navigation
-	--------------------*/
     $(".mobile-menu").slicknav({
         prependTo: '#mobile-menu-wrap',
         allowParentLinks: true
     });
 
-    /*------------------
-        Hero Slider
-    --------------------*/
+
+    //Main Here Slider
+
     $(".hero-items").owlCarousel({
         loop: true,
         margin: 0,
@@ -41,9 +39,9 @@
         autoplay: true,
     });
 
-    /*------------------
-        Product Slider
-    --------------------*/
+
+    //Product Images Slider
+
     $(".product-slider").owlCarousel({
         loop: true,
         margin: 25,
@@ -70,9 +68,9 @@
         }
     });
 
-    //    Product Single Slider
+    //    Product Details image Slider
 
-       $(".ps-slider").owlCarousel({
+    $(".ps-slider").owlCarousel({
         loop: false,
         margin: 10,
         nav: true,
@@ -85,43 +83,17 @@
     });
 
 
-		// Range Slider
+    //  Size Selector Radio Btn
 
-        var rangeSlider = $(".price-range"),
-        minamount = $("#minamount"),
-        maxamount = $("#maxamount"),
-        minPrice = rangeSlider.data('min'),
-        maxPrice = rangeSlider.data('max');
-    rangeSlider.slider({
-        range: true,
-        min: minPrice,
-        max: maxPrice,
-        values: [minPrice, maxPrice],
-        slide: function (event, ui) {
-            minamount.val('$' + ui.values[0]);
-            maxamount.val('$' + ui.values[1]);
-        }
-    });
-    minamount.val('$' + rangeSlider.slider("values", 1));
-    maxamount.val('$' + rangeSlider.slider("values", 1));
-
-    /*-------------------
-		Radio Btn
-	--------------------- */
     $(".fw-size-choose .sc-item label, .pd-size-choose .sc-item label").on('click', function () {
         $(".fw-size-choose .sc-item label, .pd-size-choose .sc-item label").removeClass('active');
         $(this).addClass('active');
     });
 
-    /*-------------------
-		Nice Select
-    --------------------- */
-    $('.sorting, .p-show').niceSelect();
 
-    /*------------------
-		Single Product
-	--------------------*/
-    $('.product-thumbs-track .pt').on('click', function () {
+	//  Product Details Images Show  Zoom
+
+        $('.product-thumbs-track .pt').on('click', function () {
         $('.product-thumbs-track .pt').removeClass('active');
         $(this).addClass('active');
         var imgurl = $(this).data('imgbigurl');
@@ -134,9 +106,9 @@
 
     $('.product-pic-zoom').zoom();
 
-    /*-------------------
-		Quantity change
-	--------------------- */
+
+    //	Product Quantity change
+    
     var proQty = $('.pro-qty');
     proQty.prepend('<span class="dec qtybtn">-</span>');
     proQty.append('<span class="inc qtybtn">+</span>');
