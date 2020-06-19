@@ -5,7 +5,7 @@
             <div class="col-lg-3">
                 <div class="footer-left">
                     <div class="footer-logo">
-                        <a href="#"> <span>Threaderz</span>
+                        <a href="index.php"> <span>Threaderz</span>
                         </a>
                     </div>
                     <ul>
@@ -14,10 +14,10 @@
                         <li>NUST H-12, Islamabad</li>
                     </ul>
                     <div class="footer-social">
-                        <a href="#"><i class="fa fa-facebook"></i></a>
-                        <a href="#"><i class="fa fa-instagram"></i></a>
-                        <a href="#"><i class="fa fa-twitter"></i></a>
-                        <a href="#"><i class="fa fa-pinterest"></i></a>
+                        <a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/?hl=en" target="_blank"><i class="fa fa-instagram"></i></a>
+                        <a href="https://twitter.com/explore" target="_blank"><i class="fa fa-twitter"></i></a>
+                        <a href="https://www.pinterest.com/" target="_blank"><i class="fa fa-pinterest"></i></a>
                     </div>
                 </div>
             </div>
@@ -25,19 +25,22 @@
                 <div class="footer-widget">
                     <h5>Information</h5>
                     <ul>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Contact</a></li>
-                        <li><a href="#">Services</a></li>
+                        <li><a href="index.php">About Us</a></li>
+                        <li><a href="contact.php">Contact</a></li>
+                        <li><a href="index.php">Privacy Policy</a></li>
                     </ul>
                 </div>
             </div>
             <div class="col-lg-2">
-                <div class="footer-widget">
+                <div class="footer-widget" style="display: <?php if ($active == 'Register' || $active == 'Login') {
+                                                                echo 'none';
+                                                            };  ?>;">
                     <h5>My Account</h5>
                     <ul>
-                        <li><a href="#">My Account</a></li>
-                        <li><a href="#">Shopping Cart</a></li>
-                        <li><a href="#">Shop</a></li>
+                        <li><a href="shopping-cart.php">Shopping Cart</a></li>
+                        <li><a href="shop.php">Shop</a></li>
+                        <li><a href="check-out.php">Check Out</a></li>
+
                     </ul>
                 </div>
             </div>
@@ -45,7 +48,7 @@
                 <div class="newslatter-item">
                     <h5>Keep in touch</h5>
                     <p>Get E-mail updates about our latest special offers.</p>
-                    <form action="#" class="subscribe-form">
+                    <form action="index.php" class="subscribe-form">
                         <input type="text" placeholder="Enter Your Mail">
                         <button type="button">Subscribe</button>
                     </form>
@@ -53,16 +56,14 @@
             </div>
         </div>
     </div>
-
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery-ui.min.js"></script>
-    <script src="js/jquery.countdown.min.js"></script>
-    <script src="js/jquery.nice-select.min.js"></script>
-    <script src="js/jquery.zoom.min.js"></script>
-    <script src="js/jquery.dd.min.js"></script>
-    <script src="js/jquery.slicknav.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/main.js"></script>
-
 </footer>
+
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery-ui.min.js"></script>
+<script src="js/jquery.countdown.min.js"></script>
+<script src="js/jquery.zoom.min.js"></script>
+<script src="js/jquery.dd.min.js"></script>
+<script src="js/jquery.slicknav.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/main.js"></script>

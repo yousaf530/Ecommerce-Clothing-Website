@@ -83,25 +83,22 @@ include("header.php");
                                     <button class="site-btn" name="submit">Send message</button>
                                 </div>
                             </div>
+                        </form>
 
+                        <?php
 
+                        if (isset($_POST['submit'])) {
+                            $user_name = $_POST['name'];
+                            $user_email = $_POST['email'];
+                            $user_subject = $_POST['subject'];
+                            $user_msg = $_POST['message'];
 
+                            $receiver_mail = 'yousafsaddique523@gmail.com';
 
+                            mail($receiver_mail, $user_name, $user_subject, $user_msg, $user_email);
+                        }
 
-                            <?php
-
-                            if (isset($_POST['submit'])) {
-                                $user_name = $_POST['name'];
-                                $user_email = $_POST['email'];
-                                $user_subject = $_POST['subject'];
-                                $user_msg = $_POST['message'];
-
-                                $receiver_mail = 'yousafsaddique523@gmail.com';
-
-                                mail($receiver_mail, $user_name, $user_subject, $user_msg, $user_email);
-                            }
-
-                            ?>
+                        ?>
                     </div>
                 </div>
             </div>

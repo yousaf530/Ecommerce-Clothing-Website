@@ -83,7 +83,7 @@ include("header.php");
                     </div>
                     <div class="col-lg-6">
                         <div class="checkout-content">
-                            <input type="text" placeholder="Enter Your Coupon Code">
+                        <a href="shop.php" class="content-btn">Continue Shopping</a>
                         </div>
                         <div class="place-order">
                             <h4>Your Order</h4>
@@ -91,22 +91,20 @@ include("header.php");
                                 <ul class="order-table">
                                     <li>Product <span>Total</span></li>
                                     <li class="fw-normal">Combination x 1 <span>$60.00</span></li>
-                                    <li class="fw-normal">Combination x 1 <span>$60.00</span></li>
-                                    <li class="fw-normal">Combination x 1 <span>$120.00</span></li>
-                                    <li class="fw-normal">Subtotal <span>$240.00</span></li>
+                                     <li class="fw-normal">Subtotal <span>$240.00</span></li>
                                     <li class="total-price">Total <span>$240.00</span></li>
                                 </ul>
                                 <div class="payment-check">
                                     <div class="pc-item">
                                         <label for="pc-check">
-                                            Cheque Payment
+                                            Cash on Delivery
                                             <input type="checkbox" id="pc-check">
                                             <span class="checkmark"></span>
                                         </label>
                                     </div>
                                     <div class="pc-item">
                                         <label for="pc-paypal">
-                                            Paypal
+                                            Online Payment
                                             <input type="checkbox" id="pc-paypal">
                                             <span class="checkmark"></span>
                                         </label>

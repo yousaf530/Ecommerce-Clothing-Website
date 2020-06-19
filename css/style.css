@@ -251,11 +251,22 @@ ol {
   padding-top: 15px;
   padding-bottom: 12px;
   padding-right: 30px;
+  padding-left: 30px;
   cursor: pointer;
 }
 
+.header-top .phone-service a {
+  color: #252525;
+  transition: color 0.3s;
+}
+
+.header-top .phone-service a:hover {
+  color: #fe4231;
+  text-decoration: none;
+}
+
 .header-top .phone-service i {
-  margin-right: 5px;
+  margin-right: 8px;
 }
 
 .header-top .f-right .login-panel {
@@ -1223,6 +1234,12 @@ ol {
   color: #ffffff;
   font-weight: 700;
   margin-bottom: 30px;
+}
+
+.footer-widget ul li a:hover {
+  line-height: 36px;
+  font-size: 16px;
+  color: white !important;
 }
 
 .newslatter-item p {
@@ -3224,6 +3241,7 @@ ol {
   .inner-header .nav-right li.cart-icon .cart-hover {
     width: 270px;
     padding: 20px;
+    display: none;
   }
   .product-show-option .select-option {
     display: inline-block;

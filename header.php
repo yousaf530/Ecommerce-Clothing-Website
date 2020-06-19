@@ -23,7 +23,6 @@ include('db.php');
     <link rel='stylesheet' href='css/themify-icons.css' type='text/css'>
     <link rel='stylesheet' href='css/elegant-icons.css' type='text/css'>
     <link rel='stylesheet' href='css/owl.carousel.min.css' type='text/css'>
-    <link rel='stylesheet' href='css/nice-select.css' type='text/css'>
     <link rel='stylesheet' href='css/jquery-ui.min.css' type='text/css'>
     <link rel='stylesheet' href='css/slicknav.min.css' type='text/css'>
     <link rel='stylesheet' href='css/style.css' type='text/css'>
@@ -50,18 +49,18 @@ include('db.php');
             <div class="container">
                 <div class="f-left">
                     <div class="top-social">
-                        <a href="#"><i class="ti-facebook"></i></a>
-                        <a href="#"><i class="ti-twitter-alt"></i></a>
-                        <a href="#"><i class="ti-instagram"></i></a>
+                        <a href="https://www.facebook.com/" target="_blank"><i class="ti-facebook"></i></a>
+                        <a href="https://twitter.com/explore" target="_blank"><i class="ti-twitter-alt"></i></a>
+                        <a href="https://www.instagram.com/?hl=en" target="_blank"><i class="ti-instagram"></i></a>
                     </div>
                 </div>
 
                 <div class="f-right">
                     <a href="login.php" class="login-panel"><i class="fa fa-user"></i>Login</a>
                     <div class="phone-service">
-                        <i class=" fa fa-phone"></i>
-                        0321-7316374
+                        <a href="register.php"><i class="fa fa-user"></i>Sign Up</a>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -84,7 +83,7 @@ include('db.php');
                         </div>
                     </div>
 
-                    <div class="col-md-3 text-right ">
+                    <div class="col-md-3 text-right" style="display: <?php if($active == 'Register' || $active == 'Login'){echo 'none';};  ?>;">
                         <ul class="nav-right">
                             <li class="cart-icon">
                                 <a href="shopping-cart.php">
@@ -97,18 +96,6 @@ include('db.php');
                                             <tbody>
 
                                                 <?php cart_icon_prod(); ?>
-                                                <!-- <tr>
-                                                    <td class="si-pic"><img src="img/select-product-1.jpg" alt=""></td>
-                                                    <td class="si-text">
-                                                        <div class="product-selected">
-                                                            <p>$60.00 x 1</p>
-                                                            <h6>Kabino Bedside Table</h6>
-                                                        </div>
-                                                    </td>
-                                                    <td class="si-close">
-                                                        <i class="ti-close"></i>
-                                                    </td>
-                                                </tr> -->
                                             </tbody>
                                         </table>
                                     </div>
@@ -133,7 +120,7 @@ include('db.php');
         <!-- Lower Bar -->
 
 
-        <div class="nav-item" >
+        <div class="nav-item">
             <div class="container">
                 <div class="nav-depart">
                     <div class="depart-btn">
