@@ -16,11 +16,6 @@
 
 
 
-
-    // On clicking submit do following 
-    
-
-
     /*------------------
 		Navigation
 	--------------------*/

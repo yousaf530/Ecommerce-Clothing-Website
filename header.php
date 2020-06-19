@@ -43,7 +43,7 @@ include('db.php');
     <!-- Header Section-->
 
 
-    <header class="header-section">
+    <header class="header-section ">
 
         <!-- Top Bar -->
         <div class="header-top" id="top">
@@ -133,7 +133,7 @@ include('db.php');
         <!-- Lower Bar -->
 
 
-        <div class="nav-item">
+        <div class="nav-item" >
             <div class="container">
                 <div class="nav-depart">
                     <div class="depart-btn">
