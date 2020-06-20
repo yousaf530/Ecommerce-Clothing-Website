@@ -18,6 +18,11 @@ h6 {
   font-family: "Muli", sans-serif;
 }
 
+*:focus,
+*:hover {
+  outline: 0 !important;
+}
+
 h1 {
   font-size: 70px;
 }
@@ -214,18 +219,16 @@ ol {
   border-bottom: 1px solid #e5e5e5;
 }
 
+/* Socail Icon Section */
+
 .header-top .f-left {
   float: left;
-}
-
-.header-top .f-right {
-  float: right;
 }
 
 .header-top .top-social {
   float: left;
   padding-right: 25px;
-  padding-top: 15px;
+  padding-top: 17px;
   padding-bottom: 15px;
   border-right: 1px solid #e5e5e5;
 }
@@ -243,52 +246,83 @@ ol {
   text-decoration: none;
 }
 
-.header-top .phone-service {
+/* Account Icon Section */
+
+.header-top .f-right {
   float: right;
-  font-size: 14px;
-  color: #252525;
-  line-height: 27px;
-  padding-top: 15px;
-  padding-bottom: 12px;
-  padding-right: 30px;
-  padding-left: 30px;
-  cursor: pointer;
 }
 
-.header-top .phone-service a {
-  color: #252525;
-  transition: color 0.3s;
+.header-top .f-right .nav-right {
+  padding: 0 0 0 20px;
+  text-align: center;
+  border-left: 1px solid #e5e5e5;
+  list-style: none;
 }
 
-.header-top .phone-service a:hover {
-  color: #fe4231;
-  text-decoration: none;
+.header-top .f-right .nav-right li.user-icon {
+  position: relative;
 }
 
-.header-top .phone-service i {
-  margin-right: 8px;
+.header-top .f-right .nav-right li.user-icon:hover .login-hover,
+.header-top .f-right .nav-right li.user-icon:focus .login-hover,
+.header-top .f-right .nav-right li.user-icon:active .login-hover {
+  visibility: visible;
+  opacity: 1;
+  z-index: 4000;
 }
 
 .header-top .f-right .login-panel {
-  float: right;
   font-size: 14px;
   color: #252525;
   display: inline-block;
-  padding-left: 20px;
-  border-left: 1px solid #e5e5e5;
   padding-top: 18px;
   padding-bottom: 15px;
-  transition: color 0.3s;
 }
 
-.header-top .f-right .login-panel:hover {
+.header-top .f-right .login-hover {
+  position: absolute;
+  top: 56px;
+  right: 0px;
+  width: 250px;
+  display: flex;
+  border: solid 0.2px #e5e5e5;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #ffffff;
+  z-index: 99;
+  padding: 4px;
+  opacity: 0;
+  visibility: hidden;
+  box-shadow: 0 13px 32px rgba(51, 51, 51, 0.1);
+  transition: all 0.3s;
+}
+
+.header-top .f-right .logbtn {
+  background-color: #fe4231;
+  color: white;
+  outline: none;
+  border: none;
+}
+
+.header-top .f-right .logbtn:hover,
+.header-top .f-right .logbtn:focus,
+.header-top .f-right .logbtn:active {
+  background-color: #fe4231;
+  outline: none;
+  border: none;
+  opacity: 0.7;
+}
+
+.insidelog {
+  padding: 5px 0px;
+}
+
+.insidelog a {
   color: #fe4231;
   text-decoration: none;
 }
-
-.header-top .f-right .login-panel i {
-  margin-right: 8px;
-}
+/* Inner Header Section */
 
 .inner-header {
   padding: 35px 0;
@@ -2556,20 +2590,18 @@ ol {
   padding-bottom: 25px;
 }
 
-.checkout-form .create-item a{
+.checkout-form .create-item a {
   position: relative;
   cursor: pointer;
   margin-bottom: 0;
   font-size: 16px;
   color: #b2b2b2;
-transition: color 0.5s;
+  transition: color 0.5s;
 }
 
-.checkout-form .create-item a:hover{
+.checkout-form .create-item a:hover {
   color: #fe4231;
-  
 }
-
 
 .checkout-form .place-order .order-total {
   border: 2px solid #ebebeb;

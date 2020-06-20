@@ -6,26 +6,26 @@ include('db.php');
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="description" content="Threaderz">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Threaderz</title>
+<meta charset="UTF-8">
+<meta name="description" content="Threaderz">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Threaderz</title>
 
-    <!-- Google Fonts Used -->
-    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
+<!-- Google Fonts Used -->
+<link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
 
-    <!-- Css Styles -->
 
-    <link rel='stylesheet' href='css/bootstrap.min.css' type='text/css'>
-    <link rel='stylesheet' href='css/font-awesome.min.css' type='text/css'>
-    <link rel='stylesheet' href='css/themify-icons.css' type='text/css'>
-    <link rel='stylesheet' href='css/elegant-icons.css' type='text/css'>
-    <link rel='stylesheet' href='css/owl.carousel.min.css' type='text/css'>
-    <link rel='stylesheet' href='css/jquery-ui.min.css' type='text/css'>
-    <link rel='stylesheet' href='css/slicknav.min.css' type='text/css'>
-    <link rel='stylesheet' href='css/style.css' type='text/css'>
+<!-- Css Styles -->
+<link rel="icon" href="img/font.svg">
+<link rel='stylesheet' href='css/bootstrap.min.css' type='text/css'>
+<link rel='stylesheet' href='css/font-awesome.min.css' type='text/css'>
+<link rel='stylesheet' href='css/themify-icons.css' type='text/css'>
+<link rel='stylesheet' href='css/elegant-icons.css' type='text/css'>
+<link rel='stylesheet' href='css/owl.carousel.min.css' type='text/css'>
+<link rel='stylesheet' href='css/jquery-ui.min.css' type='text/css'>
+<link rel='stylesheet' href='css/slicknav.min.css' type='text/css'>
+<link rel='stylesheet' href='css/style.css' type='text/css'>
 
 
 </head>
@@ -56,11 +56,23 @@ include('db.php');
                 </div>
 
                 <div class="f-right">
-                    <a href="login.php" class="login-panel"><i class="fa fa-user"></i>Login</a>
-                    <div class="phone-service">
-                        <a href="register.php"><i class="fa fa-user"></i>Sign Up</a>
-                    </div>
+                    <ul class="nav-right">
+                        <li class="user-icon">
+                            <a href="account.php" class="login-panel">
+                                <i class="fa fa-user" style="font-size:20px"></i>
+                            </a>
+                            <div class="login-hover">
+                                <div class="insidelog">
+                                    <a href="login.php" class="btn logbtn" style="width: 200px; height:40px">Login</a>
+                                </div>
+                                <div class="insidelog">
+                                    <p class="small">You dont have an account?</p>
+                                    <a href='register.php' class="small" target="_blank">Sign up Now</a>
+                                </div>
 
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -83,7 +95,9 @@ include('db.php');
                         </div>
                     </div>
 
-                    <div class="col-md-3 text-right" style="visibility: <?php if($active == 'Register' || $active == 'Login'){echo 'hidden';};  ?>;">
+                    <div class="col-md-3 text-right" style="visibility: <?php if ($active == 'Register' || $active == 'Login') {
+                                                                            echo 'hidden';
+                                                                        };  ?>;">
                         <ul class="nav-right">
                             <li class="cart-icon">
                                 <a href="shopping-cart.php">

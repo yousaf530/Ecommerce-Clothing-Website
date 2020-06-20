@@ -59,7 +59,7 @@ include("header.php");
                         </div>
                         <div class="col-lg-12">
                             <div class="create-item">
-                                <a href="register.php">Create an account</a>
+                                <a href="register.php">Create account</a>
                             </div>
                         </div>
                     </div>
