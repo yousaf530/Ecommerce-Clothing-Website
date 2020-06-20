@@ -2553,48 +2553,23 @@ ol {
 
 .checkout-form .create-item {
   padding-top: 15px;
+  padding-bottom: 25px;
 }
 
-.checkout-form .create-item label {
+.checkout-form .create-item a{
   position: relative;
   cursor: pointer;
-  padding-left: 32px;
   margin-bottom: 0;
-  font-size: 14px;
-  color: #252525;
+  font-size: 16px;
+  color: #b2b2b2;
+transition: color 0.5s;
 }
 
-.checkout-form .create-item label input {
-  position: absolute;
-  visibility: hidden;
+.checkout-form .create-item a:hover{
+  color: #fe4231;
+  
 }
 
-.checkout-form .create-item label input:checked ~ span {
-  background: #fe4231;
-  border-color: #fe4231;
-}
-
-.checkout-form .create-item label .checkmark {
-  position: absolute;
-  left: 0;
-  top: 3px;
-  height: 13px;
-  width: 13px;
-  border: 2px solid #b2b2b2;
-  border-radius: 2px;
-}
-
-.checkout-form .create-item label .checkmark:after {
-  left: 0;
-  top: 0;
-  width: 9px;
-  height: 6px;
-  border: solid #ffffff;
-  border-width: 2px 2px 0px 0px;
-  -webkit-transform: rotate(127deg);
-  -ms-transform: rotate(127deg);
-  transform: rotate(127deg);
-}
 
 .checkout-form .place-order .order-total {
   border: 2px solid #ebebeb;

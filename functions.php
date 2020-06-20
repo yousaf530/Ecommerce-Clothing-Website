@@ -620,23 +620,34 @@ function cart_icon_prod()
     $run_items = mysqli_query($db, $get_items);
 
 
-    while ($row_items = mysqli_fetch_array($run_items)) {
-        $p_id = $row_items['products_id'];
-        $pro_qty = $row_items['qty'];
 
-        $get_item = "select * from products where products_id = '$p_id' ORDER BY date DESC";
-        $run_item = mysqli_query($db, $get_item);
+    if (mysqli_num_rows($run_items) == 0) {
+        echo  " 
 
-        while ($row_item = mysqli_fetch_array($run_item)) {
+        
+        <p style='text-align:center; font-weight:500;color:#fe4231'>Cart Empty </p>
+    
+           
+        ";
+    } else {
 
-            $pro_name = $row_item['product_title'];
-            $pro_price = $row_item['product_price'];
-            $pro_img1 = $row_item['product_img1'];
+        while ($row_items = mysqli_fetch_array($run_items)) {
+            $p_id = $row_items['products_id'];
+            $pro_qty = $row_items['qty'];
 
-            $pro_total_p = $pro_price * $pro_qty;
-        }
+            $get_item = "select * from products where products_id = '$p_id' ORDER BY date DESC";
+            $run_item = mysqli_query($db, $get_item);
 
-        echo "
+            while ($row_item = mysqli_fetch_array($run_item)) {
+
+                $pro_name = $row_item['product_title'];
+                $pro_price = $row_item['product_price'];
+                $pro_img1 = $row_item['product_img1'];
+
+                $pro_total_p = $pro_price * $pro_qty;
+            }
+
+            echo "
         <tr>
         <td class='si-pic'><img src='img/products/$pro_img1' alt='$pro_name' style='max-height:70px'></td>
         <td class='si-text'>
@@ -650,5 +661,54 @@ function cart_icon_prod()
         </td>
     </tr>
     ";
+        }
+    }
+}
+
+
+function checkoutProds()
+{
+
+
+    global $db;
+
+    $ip_add = getRealIpUser();
+
+
+    $get_items = "select * from cart where ip_add = '$ip_add' ORDER BY date DESC";
+    $run_items = mysqli_query($db, $get_items);
+
+
+    if (mysqli_num_rows($run_items) == 0) {
+        echo  " 
+
+        
+        <li class='fw-normal' style='text-align:center;font-weight:bold;font-size:larger;color:#fe4231'>No Items in Cart</li>
+    
+           
+        
+        ";
+    } else {
+
+        while ($row_items = mysqli_fetch_array($run_items)) {
+            $p_id = $row_items['products_id'];
+            $pro_qty = $row_items['qty'];
+
+            $get_item = "select * from products where products_id = '$p_id' ORDER BY date DESC";
+            $run_item = mysqli_query($db, $get_item);
+
+            while ($row_item = mysqli_fetch_array($run_item)) {
+
+                $pro_name = $row_item['product_title'];
+                $pro_price = $row_item['product_price'];
+
+                $pro_total_p = $pro_price * $pro_qty;
+            }
+
+            echo "
+        <li class='fw-normal'>$pro_name x $pro_qty <span>$pro_total_p</span></li>
+    
+";
+        }
     }
 }
