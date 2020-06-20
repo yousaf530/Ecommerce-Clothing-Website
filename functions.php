@@ -523,6 +523,7 @@ function total_price()
     echo "PKR " . $total;
 }
 
+$countrows = 0;
 
 function cart_items()
 {
@@ -533,27 +534,58 @@ function cart_items()
 
 
     $get_items = "select * from cart where ip_add = '$ip_add' ORDER BY date DESC";
-    $run_items = mysqli_query($db, $get_items);
+    $run_itemss = mysqli_query($db, $get_items);
 
+    $countrows =  mysqli_num_rows($run_itemss);
 
-    while ($row_items = mysqli_fetch_array($run_items)) {
-        $p_id = $row_items['products_id'];
-        $pro_qty = $row_items['qty'];
+    if ($countrows == 0) {
+        echo  " 
 
-        $get_item = "select * from products where products_id = '$p_id'";
-        $run_item = mysqli_query($db, $get_item);
-
-        while ($row_item = mysqli_fetch_array($run_item)) {
-
-            $pro_id = $row_item['products_id'];
-            $pro_name = $row_item['product_title'];
-            $pro_price = $row_item['product_price'];
-            $pro_img1 = $row_item['product_img1'];
-
-            $pro_total_p = $pro_price * $pro_qty;
-        }
+        
+    <div class='card col-md-3 col-10' style='margin:0 auto; border-radius:25px 5px;box-shadow: inset -12px -8px 40px #e5e5e5;'>
+        <div class='card-body'>
+           <h5 style='text-align:center;font-weight:500'> No items in Cart </h5>
+        </div>
+    </div>
+           
+        
+        ";
+    } else {
 
         echo "
+        
+        <thead style='font-size: larger;'>
+                            <tr>
+                                <th>Image</th>
+                                <th class='p-name'>Product Name</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Total</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+
+        ";
+
+
+        while ($row_items = mysqli_fetch_array($run_itemss)) {
+            $p_id = $row_items['products_id'];
+            $pro_qty = $row_items['qty'];
+
+            $get_item = "select * from products where products_id = '$p_id'";
+            $run_item = mysqli_query($db, $get_item);
+
+            while ($row_item = mysqli_fetch_array($run_item)) {
+
+                $pro_id = $row_item['products_id'];
+                $pro_name = $row_item['product_title'];
+                $pro_price = $row_item['product_price'];
+                $pro_img1 = $row_item['product_img1'];
+
+                $pro_total_p = $pro_price * $pro_qty;
+            }
+
+            echo "
     
         <tr style='border-bottom: 0.5px solid #ebebeb'>
            <td class='cart-pic first-row'><img src='img/products/$pro_img1' alt='$pro_name' style='max-height:100px'></td>
@@ -572,6 +604,7 @@ function cart_items()
            <td class='close-td first-row'><i class='ti-close'></i></td>
        </tr>    
    ";
+        }
     }
 }
 

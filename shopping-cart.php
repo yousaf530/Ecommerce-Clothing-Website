@@ -26,26 +26,19 @@ include('header.php');
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <div class="cart-table">
+                <div class="cart-table" style="min-height: 150px;">
                     <table>
-                        <thead style="font-size: larger;">
-                            <tr>
-                                <th>Image</th>
-                                <th class="p-name">Product Name</th>
-                                <th>Price</th>
-                                <th>Quantity</th>
-                                <th>Total</th>
-                                <th></th>
-                            </tr>
-                        </thead>
                         <tbody>
                             <?php cart_items(); ?>
                         </tbody>
+
                     </table>
+
                 </div>
                 <div class="row">
                     <div class="col-lg-4">
                         <div class="cart-buttons">
+
                             <a href="shop.php" class="primary-btn continue-shop">Continue shopping</a>
                             <a href="shopping-cart.php" class="primary-btn up-cart">Update cart</a>
                         </div>
