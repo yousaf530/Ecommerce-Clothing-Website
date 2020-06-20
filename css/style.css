@@ -1721,6 +1721,31 @@ ol {
 }
 
 /*---------------------
+  My Account Details
+-----------------------*/
+.insider {
+  padding: 20px 0px 20px 0;
+display: flex;
+justify-content: space-between;
+}
+
+.insider ul li a {
+  color: black !important;
+  text-align: center;
+}
+
+.insider ul li a:hover {
+  color: #fe4231 !important;
+  opacity: 0.8;
+}
+
+.insider ul li a i{
+padding: 10px 8px;
+}
+
+
+
+/*---------------------
   Product Details
 -----------------------*/
 
@@ -3107,16 +3132,7 @@ ol {
 /* Large Device: 480px */
 
 @media only screen and (max-width: 767px) {
-  .copyright-reserved .copyright-text {
-    float: none;
-    margin-bottom: 10px;
-    text-align: center;
-  }
-  .copyright-reserved .payment-pic {
-    float: none;
-    text-align: center;
-  }
-  .header-top .ht-left,
+ 
   .header-top .top-social {
     display: none;
   }
@@ -3234,6 +3250,13 @@ ol {
   .checkout-content input {
     margin-top: 50px;
   }
+
+  .insider {
+    padding: 20px 0px 20px 0;
+  display: flex;
+  justify-content: center;
+  }
+  
 }
 
 /* Small Device: 320px */
