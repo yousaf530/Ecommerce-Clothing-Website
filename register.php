@@ -79,7 +79,7 @@ include('footer.php');
 
 if (isset($_POST['register'])) {
 
-
+    
     $c_name = $_POST['name'];
     $c_email = $_POST['cemail'];
     $c_address = $_POST['address'];
@@ -92,6 +92,10 @@ if (isset($_POST['register'])) {
 
     $c_ip = getRealIpUser();
 
+
+    $_SESSION['customer_email'] = $c_email;
+    $c_id = $_SESSION['customer_email'];
+
     move_uploaded_file($c_tmp_image, "/img/customer/$c_image");
 
     $insert_c = "Insert into customer (customer_name,customer_email,customer_pass,customer_address,customer_contact,customer_image,customer_ip)
@@ -99,7 +103,7 @@ if (isset($_POST['register'])) {
 
     $run_insert = mysqli_query($con, $insert_c);
 
-    $sel_cart = "select * from cart where ip_add = '$c_ip'";
+    $sel_cart = "select * from cart where c_id = '$c_id'";
 
     $run_sel_cart = mysqli_query($con, $sel_cart);
 

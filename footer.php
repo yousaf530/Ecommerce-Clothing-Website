@@ -38,7 +38,7 @@
                     <h5>Account</h5>
                     <ul>
 
-                        <?php if ((isset($_SESSION['customer_email']))) {
+                        <?php if (!($_SESSION['customer_email'] == 'unset')) {
                             echo "'<li><a href='account.php'>My Account</a></li>'";
                         } ?>
                         <li><a href="shopping-cart.php">Shopping Cart</a></li>

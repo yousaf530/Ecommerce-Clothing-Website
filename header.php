@@ -1,5 +1,6 @@
 <?php
 session_start();
+$_SESSION['customer_email'] = 'unset';
 include('db.php');
 ?>
 
@@ -66,7 +67,7 @@ include('db.php');
                                 <div class="insidelog">
 
 
-                                    <?php if (!(isset($_SESSION['customer_email']))) {
+                                    <?php if ($_SESSION['customer_email'] == 'unset') {
                                         echo "<a href='login.php' class='btn logbtn' style='width: 200px; height:40px'>Login</a>";
                                     } else {
                                         echo "<a href='logout.php' class='btn logbtn' style='width: 200px; height:40px'>Log Out</a>";
@@ -77,8 +78,8 @@ include('db.php');
                                 <div class="insidelog">
                                     <span class="small">or </span><a href='register.php' class="small">Sign up Now</a>
                                 </div>
-                                <?php if ((isset($_SESSION['customer_email']))) {
-                                echo "
+                                <?php if (!($_SESSION['customer_email'] == 'unset')) {
+                                    echo "
                                 <div class='insidelog' style='border-top: solid 0.2px #e5e5e5;'>
                                     <a href='account.php?orders' class='btn btn-dark' style='color:white;margin:4px 0'>My Account</a>
                                 </div>";
@@ -109,9 +110,9 @@ include('db.php');
                         </div>
                     </div>
 
-                    <div class="col-md-3 text-right" style="visibility: <?php if ($active == 'Register' || $active == 'Login') {
-                                                                            echo 'hidden';
-                                                                        };  ?>;">
+                    <div class="col-md-3 text-right" style="visibility:      <?php if ($_SESSION['customer_email'] == 'unset') {
+                                                                                    echo "hidden";
+                                                                                } ?>">
                         <ul class="nav-right">
                             <li class="cart-icon">
                                 <a href="shopping-cart.php">

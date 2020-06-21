@@ -66,6 +66,7 @@ if (isset($_POST['login'])) {
 
     $log_email = $_POST['cemail'];
     $log_pass = $_POST['password'];
+    $c_id = $log_email;
 
 
     $sel_customer = "select * from customer where customer_email = '$log_email' AND customer_pass = '$log_pass'";
@@ -76,7 +77,7 @@ if (isset($_POST['login'])) {
 
     $check_customer = mysqli_num_rows($run_sel_c);
 
-    $select_cart = "select * from cart where ip_add = '$get_ip'";
+    $select_cart = "select * from cart where c_id = '$c_id'";
 
     $run_sel_cart = mysqli_query($con, $select_cart);
 

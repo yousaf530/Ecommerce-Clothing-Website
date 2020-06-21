@@ -29,11 +29,12 @@ function addCart()
     if (isset($_GET['add_cart'])) {
         $ip_add = getRealIpUser();
 
+        $c_id = $_SESSION['customer_email'];
         $p_id = $_GET['add_cart'];
         $qty = $_POST['product_qty'];
         $size = $_POST['size'];
 
-        $check_product = "select * from cart where ip_add = '$ip_add' AND products_id = '$p_id'";
+        $check_product = "select * from cart where c_id = '$c_id' AND products_id = '$p_id'";
         $run_check = mysqli_query($db, $check_product);
 
 
@@ -43,7 +44,7 @@ function addCart()
             echo "<script>window.open('product.php?pro_id=$p_id','_self')</script>";
         } else {
 
-            $query = "Insert into cart (products_id, ip_add,qty,size,date) values('$p_id','$ip_add','$qty','$size',NOW())";
+            $query = "Insert into cart (products_id, ip_add,qty,size,date,c_id) values('$p_id','$ip_add','$qty','$size',NOW(),'$c_id')";
             $run_query = mysqli_query($db, $query);
 
 
@@ -475,8 +476,9 @@ function items()
     global $db;
 
     $ip_add = getRealIpUser();
+    $c_id = $_SESSION['customer_email'];
 
-    $get_items = "select * from cart where ip_add = '$ip_add'";
+    $get_items = "select * from cart where c_id = '$c_id'";
     $run_items = mysqli_query($db, $get_items);
 
     $count_items = mysqli_num_rows($run_items);
@@ -491,10 +493,12 @@ function total_price()
     global $db;
 
     $ip_add = getRealIpUser();
+    $c_id = $_SESSION['customer_email'];
+    
 
     $total = 0;
 
-    $get_items = "select * from cart where ip_add = '$ip_add'";
+    $get_items = "select * from cart where c_id = '$c_id'";
     $run_items = mysqli_query($db, $get_items);
 
 
@@ -522,9 +526,9 @@ function cart_items()
     global $db;
 
     $ip_add = getRealIpUser();
+    $c_id = $_SESSION['customer_email'];
 
-
-    $get_items = "select * from cart where ip_add = '$ip_add' ORDER BY date DESC";
+    $get_items = "select * from cart where c_id = '$c_id' ORDER BY date DESC";
     $run_itemss = mysqli_query($db, $get_items);
 
     $countrows =  mysqli_num_rows($run_itemss);
@@ -604,10 +608,11 @@ function cart_icon_prod()
 
     global $db;
 
+    $c_id = $_SESSION['customer_email'];
     $ip_add = getRealIpUser();
 
 
-    $get_items = "select * from cart where ip_add = '$ip_add'ORDER BY date DESC LIMIT 0,2";
+    $get_items = "select * from cart where c_id = '$c_id' ORDER BY date DESC LIMIT 0,2";
     $run_items = mysqli_query($db, $get_items);
 
 
@@ -664,9 +669,11 @@ function checkoutProds()
     global $db;
 
     $ip_add = getRealIpUser();
+    $c_id = $_SESSION['customer_email'];
 
 
-    $get_items = "select * from cart where ip_add = '$ip_add' ORDER BY date DESC";
+
+    $get_items = "select * from cart where c_id = '$c_id' ORDER BY date DESC";
     $run_items = mysqli_query($db, $get_items);
 
 
