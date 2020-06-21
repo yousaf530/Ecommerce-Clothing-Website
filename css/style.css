@@ -1725,8 +1725,8 @@ ol {
 -----------------------*/
 .insider {
   padding: 20px 0px 20px 0;
-display: flex;
-justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .insider ul li a {
@@ -1739,11 +1739,9 @@ justify-content: space-between;
   opacity: 0.8;
 }
 
-.insider ul li a i{
-padding: 10px 8px;
+.insider ul li a i {
+  padding: 10px 8px;
 }
-
-
 
 /*---------------------
   Product Details
@@ -1838,14 +1836,6 @@ padding: 10px 8px;
 .product-details .pd-title h3 {
   color: #252525;
   font-weight: 700;
-}
-
-.product-details .pd-title .heart-icon {
-  color: #252525;
-  font-size: 18px;
-  position: absolute;
-  right: 0;
-  top: 0;
 }
 
 .product-details .pd-rating {
@@ -3132,7 +3122,6 @@ padding: 10px 8px;
 /* Large Device: 480px */
 
 @media only screen and (max-width: 767px) {
- 
   .header-top .top-social {
     display: none;
   }
@@ -3253,10 +3242,25 @@ padding: 10px 8px;
 
   .insider {
     padding: 20px 0px 20px 0;
-  display: flex;
-  justify-content: center;
+    display: flex;
+    justify-content: center;
   }
-  
+
+  .header-top .f-right .logbtn {
+    background-color: #fe4231;
+    color: white;
+    outline: none;
+    border: none;
+  }
+
+  .header-top .f-right .logbtn:hover,
+  .header-top .f-right .logbtn:focus,
+  .header-top .f-right .logbtn:active {
+    background-color: #fe4231;
+    outline: none;
+    border: none;
+    opacity: 0.7;
+  }
 }
 
 /* Small Device: 320px */

@@ -376,7 +376,7 @@ function getProd()
 
         echo "
         
-        <div class='col-lg-6 col-12' style='margin:0 auto'>
+    <div class='col-lg-6' style='margin:0 auto'>
         <div class='product-pic-zoom  col-md-8' style='max-height:400px;margin: 0 0 30px 0'>
             <img class='product-big-img' src='img/products/$product_img1' alt='$product_title'>
             <div class='zoom-icon'>
@@ -391,18 +391,11 @@ function getProd()
         </div>
     </div>
     <div class='col-lg-6'>
-        <div class='product-details' >
+        <div class='product-details'>
             <div class='pd-title'>
                 <h3>$product_title</h3>
             </div>
-            <div class='pd-rating'>
-                <i class='fa fa-star'></i>
-                <i class='fa fa-star'></i>
-                <i class='fa fa-star'></i>
-                <i class='fa fa-star'></i>
-                <i class='fa fa-star-o'></i>
-                <span>(5)</span>
-            </div>
+           
             <div class='pd-desc'>
                 <p>$product_desc</p>
                 <h4>PKR $product_price</h4>
@@ -411,7 +404,7 @@ function getProd()
             <ul class='pd-tags'>
                 <li><span>CATEGORY</span>: $p_cat_name</li>
             </ul>
-    
+        
         ";
     }
 }
@@ -454,7 +447,7 @@ function relatedProducts()
         <div class='col-lg-3 col-sm-6'>
             <div class='product-item' >
                 <div class='pi-pic' style='max-height:300px'>
-                    <img src='img/products/$p_img1' alt=''>
+                    <img src='img/products/$p_img1' alt='$p_name'>
                     <ul>
                         <li class='w-icon active'><a href='#'><i class='icon_bag_alt'></i></a></li>
                         <li class='quick-view'><a href='product.php?product_id=$p_id'>View Details</a></li>
