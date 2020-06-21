@@ -1,7 +1,5 @@
 <?php
 
-use function PHPSTORM_META\map;
-
 $active = "Register";
 include("db.php");
 include("functions.php");
@@ -112,7 +110,7 @@ if (isset($_POST['register'])) {
 
         $_SESSION['customer_email'] = $c_email;
 
-        echo "<script>alert('Your account has been.')</script>";
+        echo "<script>alert('Your account has been registered.')</script>";
         echo "<script>window.open('check-out.php','_self')</script>";
     } else {
 

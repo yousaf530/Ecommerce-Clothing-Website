@@ -80,7 +80,7 @@ include('db.php');
                                 <?php if ((isset($_SESSION['customer_email']))) {
                                 echo "
                                 <div class='insidelog' style='border-top: solid 0.2px #e5e5e5;'>
-                                    <a href='account.php' class='btn btn-dark' style='color:white;margin:4px 0'>My Account</a>
+                                    <a href='account.php?orders' class='btn btn-dark' style='color:white;margin:4px 0'>My Account</a>
                                 </div>";
                                 }
                                 ?>

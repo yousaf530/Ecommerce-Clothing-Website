@@ -34,13 +34,20 @@ include("header.php");
 
         <div class="col-md-8 col-10" style="padding:20px 0">
 
-            <h4 class='card' style="text-align: center; margin: 0 0 30px 0;font-weight:600;padding:10px 0 ">Orders </h4>
 
             <?php
 
+            if (isset($_GET['orders'])) {
+                echo " <h4 class='card' style='text-align: center; margin: 0 0 30px 0;font-weight:600;padding:10px 0 '>My Orders</h4>";
 
-            include("orders.php");
+                include("orders.php");
+            }
 
+            if (isset($_GET['details'])) {
+                echo " <h4 class='card' style='text-align: center; margin: 0 0 30px 0;font-weight:600;padding:10px 0 '>Account Details </h4>";
+            
+                include("details.php");
+            }
             ?>
 
 

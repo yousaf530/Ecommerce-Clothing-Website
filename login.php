@@ -1,5 +1,6 @@
 <?php
 $active = "Login";
+include("db.php"); 
 include("functions.php");
 include("header.php");
 ?>
@@ -27,26 +28,17 @@ include("header.php");
             <div class="col-lg-6 offset-lg-3">
                 <div class="login-form">
                     <h2>Login</h2>
-                    <form action="#">
+                    <form action="login.php" method="post">
                         <div class="group-input">
-                            <label for="username">Username or email address *</label>
-                            <input type="text" id="username">
+                            <label for="username">Email *</label>
+                            <input type="text" id="username" name="cemail" required>
                         </div>
                         <div class="group-input">
                             <label for="pass">Password *</label>
-                            <input type="text" id="pass">
+                            <input type="password" id="pass" name="password" required>
                         </div>
-                        <div class="group-input gi-check">
-                            <div class="gi-more">
-                                <label for="save-pass">
-                                    Save Password
-                                    <input type="checkbox" id="save-pass">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <a href="#" class="forget-pass">Forget your Password</a>
-                            </div>
-                        </div>
-                        <button type="submit" class="site-btn login-btn">Sign In</button>
+
+                        <button name="login" class="site-btn login-btn" >Sign In</button>
                     </form>
                     <div class="switch-login">
                         <a href="register.php" class="or-login">Or Create An Account</a>
@@ -66,3 +58,50 @@ include('footer.php');
 </body>
 
 </html>
+
+<?php
+
+if (isset($_POST['login'])) {
+
+
+    $log_email = $_POST['cemail'];
+    $log_pass = $_POST['password'];
+
+
+    $sel_customer = "select * from customer where customer_email = '$log_email' AND customer_pass = '$log_pass'";
+
+    $run_sel_c = mysqli_query($con, $sel_customer);
+
+    $get_ip = getRealIpUser();
+
+    $check_customer = mysqli_num_rows($run_sel_c);
+
+    $select_cart = "select * from cart where ip_add = '$get_ip'";
+
+    $run_sel_cart = mysqli_query($con, $select_cart);
+
+    $check_cart = mysqli_num_rows($run_sel_cart);
+
+    if ($check_customer == 0) {
+
+        echo  "<script>alert('Wrong Email or Password')</script>";
+
+        exit();
+    }
+
+    if ($check_customer == 1 and $check_cart == 0) {
+
+        $_SESSION['customer_email'] = $log_email;
+
+        echo  "<script>alert('Account Logged In')</script>";
+        echo  "<script>window.open('account.php?orders','_self')</script>";
+    }
+    else{
+        $_SESSION['customer_email'] = $log_email;
+
+        echo  "<script>alert('Account Logged In')</script>";
+        echo  "<script>window.open('check-out.php?','_self')</script>";
+    }
+}
+
+?>

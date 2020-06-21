@@ -27,44 +27,52 @@ include("header.php");
     <div class="container">
         <form class="checkout-form">
             <div class="row">
-                <div class="col-lg-6">
-                    <div class="checkout-content">
-                        <a href="login.php" class="content-btn">Click Here To Login</a>
+
+                <?php if (!(isset($_SESSION['customer_email']))) {
+                    echo "
+                    <div class='col-lg-6'>
+                    <div class='checkout-content'>
+                        <a href='login.php' class='content-btn'>Click Here To Login</a>
                     </div>
                     <h4>Biiling Details</h4>
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <label for="fir">First Name<span>*</span></label>
-                            <input type="text" id="fir">
+                    <div class='row'>
+                        <div class='col-lg-6'>
+                            <label for='fir'>First Name<span>*</span></label>
+                            <input type='text' id='fir'>
                         </div>
-                        <div class="col-lg-6">
-                            <label for="last">Last Name<span>*</span></label>
-                            <input type="text" id="last">
+                        <div class='col-lg-6'>
+                            <label for='last'>Last Name<span>*</span></label>
+                            <input type='text' id='last'>
                         </div>
-                        <div class="col-lg-12">
-                            <label for="street">Street Address<span>*</span></label>
-                            <input type="text" id="street" class="street-first">
+                        <div class='col-lg-12'>
+                            <label for='street'>Street Address<span>*</span></label>
+                            <input type='text' id='street' class='street-first'>
                         </div>
-                        <div class="col-lg-12">
-                            <label for="town">City<span>*</span></label>
-                            <input type="text" id="town">
+                        <div class='col-lg-12'>
+                            <label for='town'>City<span>*</span></label>
+                            <input type='text' id='town'>
                         </div>
-                        <div class="col-lg-6">
-                            <label for="email">Email Address<span>*</span></label>
-                            <input type="text" id="email">
+                        <div class='col-lg-6'>
+                            <label for='email'>Email Address<span>*</span></label>
+                            <input type='text' id='email'>
                         </div>
-                        <div class="col-lg-6">
-                            <label for="phone">Phone<span>*</span></label>
-                            <input type="text" id="phone">
+                        <div class='col-lg-6'>
+                            <label for='phone'>Phone<span>*</span></label>
+                            <input type='text' id='phone'>
                         </div>
-                        <div class="col-lg-12">
-                            <div class="create-item">
-                                <a href="register.php">Create account</a>
+                        <div class='col-lg-12'>
+                            <div class='create-item'>
+                                <a href='register.php'>Create account</a>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-6">
+                </div>";
+                }
+
+                ?>
+                <div class="col-lg-6" <?php if ((isset($_SESSION['customer_email']))) {
+                                            echo "style = 'margin: 0 auto'";
+                                        } ?>>
                     <div class="checkout-content">
                         <a href="shop.php" class="content-btn">Continue Shopping</a>
                     </div>
@@ -88,14 +96,14 @@ include("header.php");
                                 </div>
 
                                 <div class="pc-item">
-                                <p id="msg" style="margin-top:18px"></p>
+                                    <p id="msg" style="margin-top:18px"></p>
                                 </div>
 
                             </div>
                             <div class="order-btn">
                                 <button type="submit" class="site-btn place-btn">Place Order</button>
                             </div>
-        
+
                         </div>
                     </div>
                 </div>
@@ -112,13 +120,13 @@ include('footer.php');
 <script>
     $(".site-btn").on('click', function() {
 
-        if (!$("input[type='checkbox']").is(':checked')) {  
+        if (!$("input[type='checkbox']").is(':checked')) {
 
             $("#msg").html(
                 "<span class='alert alert-danger'>" +
                 "Please check Cash on delivery.</span>");
         } else {
-           return;
+            return;
         }
 
     });

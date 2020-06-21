@@ -35,10 +35,13 @@
                 <div class="footer-widget" style="display: <?php if ($active == 'Register' || $active == 'Login') {
                                                                 echo 'none';
                                                             };  ?>;">
-                    <h5>My Account</h5>
+                    <h5>Account</h5>
                     <ul>
+
+                        <?php if ((isset($_SESSION['customer_email']))) {
+                            echo "'<li><a href='account.php'>My Account</a></li>'";
+                        } ?>
                         <li><a href="shopping-cart.php">Shopping Cart</a></li>
-                        <li><a href="shop.php">Shop</a></li>
                         <li><a href="check-out.php">Check Out</a></li>
 
                     </ul>
