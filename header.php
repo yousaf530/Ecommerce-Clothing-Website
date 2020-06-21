@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include('db.php');
 ?>
 
@@ -64,14 +64,26 @@ include('db.php');
                             </div>
                             <div class="login-hover">
                                 <div class="insidelog">
-                                    <a href="login.php" class="btn logbtn" style="width: 200px; height:40px">Login</a>
+
+
+                                    <?php if (!(isset($_SESSION['customer_email']))) {
+                                        echo "<a href='login.php' class='btn logbtn' style='width: 200px; height:40px'>Login</a>";
+                                    } else {
+                                        echo "<a href='logout.php' class='btn logbtn' style='width: 200px; height:40px'>Log Out</a>";
+                                    } ?>
+
+
                                 </div>
                                 <div class="insidelog">
-                                    <span class="small">or </span><a href='register.php' class="small" target="_blank">Sign up Now</a>
+                                    <span class="small">or </span><a href='register.php' class="small">Sign up Now</a>
                                 </div>
-                                <div class="insidelog" style="border-top: solid 0.2px #e5e5e5;">
-                                    <a href="account.php" class="btn btn-dark" style="color:white;margin:4px 0">My Account</a>
-                                </div>
+                                <?php if ((isset($_SESSION['customer_email']))) {
+                                echo "
+                                <div class='insidelog' style='border-top: solid 0.2px #e5e5e5;'>
+                                    <a href='account.php' class='btn btn-dark' style='color:white;margin:4px 0'>My Account</a>
+                                </div>";
+                                }
+                                ?>
                             </div>
                         </li>
                     </ul>
