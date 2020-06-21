@@ -86,7 +86,6 @@ function getWProduct()
             </ul>
         </div>
         <div class='pi-text'>
-            <div class='catagory-name'>Jeans</div>
             <a href='#'>
                 <h5>$product_title</h5>
             </a>
@@ -129,7 +128,6 @@ function getMProduct()
             </ul>
         </div>
         <div class='pi-text'>
-            <div class='catagory-name'>Jeans</div>
             <a href='#'>
                 <h5>$product_title</h5>
             </a>
