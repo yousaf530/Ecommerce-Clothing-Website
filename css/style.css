@@ -277,6 +277,7 @@ ol {
   display: inline-block;
   padding-top: 18px;
   padding-bottom: 15px;
+  cursor: pointer;
 }
 
 .header-top .f-right .login-hover {
