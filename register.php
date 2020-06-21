@@ -5,58 +5,79 @@ include("functions.php");
 include('header.php');
 ?>
 
-    <!-- Breadcrumb Section Begin -->
-    <div class="breacrumb-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="breadcrumb-text">
-                        <a href="Index.php"><i class="fa fa-home"></i> Home</a>
-                        <span>Register</span>
-                    </div>
+<!-- Breadcrumb Section Begin -->
+<div class="breacrumb-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb-text">
+                    <a href="Index.php"><i class="fa fa-home"></i> Home</a>
+                    <span>Register</span>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Breadcrumb Form Section Begin -->
+</div>
+<!-- Breadcrumb Form Section Begin -->
 
-    <!-- Register Section Begin -->
-    <div class="register-login-section spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 offset-lg-3">
-                    <div class="register-form">
-                        <h2>Register</h2>
-                        <form action="#">
-                            <div class="group-input">
-                                <label for="username">Username or email address *</label>
-                                <input type="text" id="username">
+<!-- Register Section Begin -->
+<div class="register-login-section spad">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <div class="register-form">
+                    <h2>Register</h2>
+                    <form action="#">
+                        <div class="row">
+                            <div class="group-input col-6">
+                                <label for="username">Name</label>
+                                <input type="text" id="username" name="name">
                             </div>
-                            <div class="group-input">
-                                <label for="pass">Password *</label>
-                                <input type="text" id="pass">
+                            <div class="group-input col-6">
+                                <label for="pass">Contact *</label>
+                                <input type="text" id="pass" name="contact">
                             </div>
-                            <div class="group-input">
-                                <label for="con-pass">Confirm Password *</label>
-                                <input type="text" id="con-pass">
-                            </div>
-                            <button type="submit" class="site-btn register-btn">REGISTER</button>
-                        </form>
-                        <div class="switch-login">
-                            <a href="login.php" class="or-login">Or Login</a>
                         </div>
+                        <div class="group-input">
+                            <label for="pass">Email *</label>
+                            <input type="text" id="pass" name="email">
+                        </div>
+                        <div class="group-input">
+                            <label for="pass">Password *</label>
+                            <input type="text" id="pass">
+                        </div>
+                        <div class="group-input">
+                            <label for="con-pass">Address *</label>
+                            <input type="text" id="con-pass" name="address">
+                        </div>
+                        <div class="group-input" >
+                            <label for="con-pass">Profile Image *</label>
+                            <input type="file" name="pimage" style="border: none; margin-top:6px;">
+                        </div>
+                        <button type="submit" class="site-btn register-btn">REGISTER</button>
+                    </form>
+                    <div class="switch-login">
+                        <a href="login.php" class="or-login">Or Login</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Register Form Section End -->
-  
-    <?php
-    include('footer.php');
-    ?>
+</div>
+<!-- Register Form Section End -->
 
-   
+<?php
+include('footer.php');
+?>
+
 </body>
 
 </html>
+
+<?php
+
+
+
+
+
+?>
