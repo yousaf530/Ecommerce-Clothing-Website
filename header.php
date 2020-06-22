@@ -176,3 +176,21 @@ include('db.php');
         </div>
     </header>
     <!-- Header End -->
+
+
+    <?php
+    if (isset($_GET['delcart'])) {
+
+
+        $p_id = $_GET['delcart'];
+
+
+        $query = "Delete from cart where products_id='$p_id'";
+
+        $run_query = mysqli_query($con, $query);
+
+        echo "<script>window.open('index.php','_self')</script>";
+    }
+
+
+    ?>

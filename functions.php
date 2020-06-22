@@ -590,7 +590,7 @@ function cart_items()
                </div>
            </td>
            <td class='total-price first-row'>PKR $pro_total_p</td>
-           <td class='close-td first-row'><a href='shopping-cart.php?del=$pro_id'><i class='ti-close' style='color:black'></i></td>
+           <td class='close-td first-row'><a href='shopping-cart.php?del=$pro_id'><i class='ti-close' style='color:black'></i></a></td>
        </tr>    
    ";
         }
@@ -647,7 +647,7 @@ function cart_icon_prod()
             </div>
         </td>
         <td class='si-close'>
-            <i class='ti-close'></i>
+        <a href='shopping-cart.php?delcart=$p_id'> <i class='ti-close' style='color:black'></i></a>
         </td>
     </tr>
     ";
