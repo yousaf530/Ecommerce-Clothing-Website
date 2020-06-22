@@ -74,9 +74,11 @@ include('db.php');
 
 
                                 </div>
-                                <div class="insidelog">
-                                    <span class="small">or </span><a href='register.php' class="small">Sign up Now</a>
-                                </div>
+                                <?php if ($_SESSION['customer_email'] == 'unset') {
+                                    echo "<div class='insidelog'>
+                                    <span class='small'>or </span><a href='register.php' class='small'>Sign up Now</a>
+                                </div>";
+                                } ?>
                                 <?php if (!($_SESSION['customer_email'] == 'unset')) {
                                     echo "
                                 <div class='insidelog' style='border-top: solid 0.2px #e5e5e5;'>
