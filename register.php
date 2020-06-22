@@ -28,20 +28,24 @@ include('header.php');
             <div class="col-lg-6 offset-lg-3">
                 <div class="register-form">
                     <h2>Register</h2>
-                    <form action="register.php" method="post" enctype="multipart/form-data">
+                    <form action="register.php" method="post" enctype="multipart/form-data" id="logform">
                         <div class="row">
-                            <div class="group-input col-6">
+                            <div class="group-input col-md-6">
                                 <label for="username">Name</label>
                                 <input type="text" id="username" name="name" required>
+                                <div id="nameerr" style="margin:20px 0"></div>
+
                             </div>
-                            <div class="group-input col-6">
-                                <label for="pass">Contact *</label>
-                                <input type="text" id="pass" name="contact" required>
+                            <div class="group-input col-md-6">
+                                <label for="con">Contact *</label>
+                                <input type="text" id="con" name="contact" required>
+                                <div id="conerr" style="margin:20px 0"></div>
                             </div>
                         </div>
                         <div class="group-input">
-                            <label for="pass">Email *</label>
-                            <input type="text" id="pass" name="cemail" required>
+                            <label for="email">Email *</label>
+                            <input type="text" id="eemail" name="cemail" required>
+                            <div id="eerr" style="margin:20px 0"></div>
                         </div>
                         <div class="group-input">
                             <label for="pass">Password *</label>
@@ -71,6 +75,49 @@ include('header.php');
 include('footer.php');
 ?>
 
+<script>
+    $("#logform").submit(function(event) {
+        var name = $('#username').val();
+        var email = $('#eemail').val();
+        var con = $('#con').val();
+
+
+
+        var letters = /^[A-Za-z]+$/;
+        var em = /\S+@\S+\.\S+/;
+        var numbers = /^[0-9]{11}$/;
+
+
+        if (!name.match(letters)) {
+            $("#nameerr").html(
+                "<span class='alert alert-danger'>" +
+                "Enter Valid Name (Letters only)</span>");
+
+            event.preventDefault();
+
+        }
+
+        if (!con.match(numbers)) {
+            $("#conerr").html(
+                "<span class='alert alert-danger'>" +
+                "Enter Valid Contact (11 Digit)</span>");
+
+            event.preventDefault();
+        }
+
+        if (!email.match(em)) {
+            $("#eerr").html(
+                "<span class='alert alert-danger'>" +
+                "Enter Valid Email</span>");
+            event.preventDefault();
+
+        }
+
+
+
+    });
+</script>
+
 </body>
 
 </html>
@@ -79,7 +126,6 @@ include('footer.php');
 
 if (isset($_POST['register'])) {
 
-    
     $c_name = $_POST['name'];
     $c_email = $_POST['cemail'];
     $c_address = $_POST['address'];
@@ -98,6 +144,8 @@ if (isset($_POST['register'])) {
 
     move_uploaded_file($c_tmp_image, "/img/customer/$c_image");
 
+
+
     $insert_c = "Insert into customer (customer_name,customer_email,customer_pass,customer_address,customer_contact,customer_image,customer_ip)
      values('$c_name','$c_email','$c_pass','$c_address','$c_contact','$c_image','$c_ip')";
 
@@ -114,19 +162,15 @@ if (isset($_POST['register'])) {
 
         $_SESSION['customer_email'] = $c_email;
 
-        echo "<script>alert('Your account has been registered.')</script>";
+        echo "<script>alert('Account registered. You are Logged In')</script>";
         echo "<script>window.open('check-out.php','_self')</script>";
     } else {
 
         $_SESSION['customer_email'] = $c_email;
 
-        echo "<script>alert('Your account has been Registered.')</script>";
+        echo "<script>alert('Account registered. You are Logged In')</script>";
         echo "<script>window.open('index.php','_self')</script>";
     }
 }
-
-
-
-
 
 ?>

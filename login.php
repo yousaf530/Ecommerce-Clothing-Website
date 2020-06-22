@@ -1,6 +1,6 @@
 <?php
 $active = "Login";
-include("db.php"); 
+include("db.php");
 include("functions.php");
 include("header.php");
 ?>
@@ -32,13 +32,15 @@ include("header.php");
                         <div class="group-input">
                             <label for="username">Email *</label>
                             <input type="text" id="username" name="cemail" required>
+                            <div id="email_error"></div>
                         </div>
                         <div class="group-input">
                             <label for="pass">Password *</label>
                             <input type="password" id="pass" name="password" required>
+                            <div id="password_error"></div>
                         </div>
 
-                        <button name="login" class="site-btn login-btn" >Sign In</button>
+                        <button name="login" class="site-btn login-btn">Sign In</button>
                     </form>
                     <div class="switch-login">
                         <a href="register.php" class="or-login">Or Create An Account</a>
@@ -69,6 +71,8 @@ if (isset($_POST['login'])) {
     $c_id = $log_email;
 
 
+
+
     $sel_customer = "select * from customer where customer_email = '$log_email' AND customer_pass = '$log_pass'";
 
     $run_sel_c = mysqli_query($con, $sel_customer);
@@ -96,8 +100,7 @@ if (isset($_POST['login'])) {
 
         echo  "<script>alert('Account Logged In')</script>";
         echo  "<script>window.open('account.php?orders','_self')</script>";
-    }
-    else{
+    } else {
         $_SESSION['customer_email'] = $log_email;
 
         echo  "<script>alert('Account Logged In')</script>";
