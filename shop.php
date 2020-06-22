@@ -96,7 +96,7 @@ include("header.php");
                                         <div class='pi-pic' style='max-height:350px'>
                                             <img src='img/products/$product_img1' alt='$product_title'>
                                             <ul>
-                                                <li class='quick-view'><a href='product.php?product_id=$products_id'>View Details</a></li>
+                                                <li class='quick-view'><a href='product.php?product_id=$products_id' style='background:#fe4231;color:white'>View Details</a></li>
                                             </ul>
                                         </div>
                                         <div class='pi-text'>

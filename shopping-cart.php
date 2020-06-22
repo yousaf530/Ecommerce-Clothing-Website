@@ -68,3 +68,22 @@ include('footer.php');
 </body>
 
 </html>
+
+
+<?php
+
+if (isset($_GET['del'])) {
+
+
+    $p_id = $_GET['del'];
+
+
+    $query = "Delete from cart where products_id='$p_id'";
+
+    $run_query = mysqli_query($con, $query);
+
+    echo "<script>window.open('shopping-cart.php','_self')</script>";
+}
+
+
+?>

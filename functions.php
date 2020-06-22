@@ -82,7 +82,7 @@ function getWProduct()
         <div class='pi-pic' style='max-height:300px'>
             <img src='img/products/$product_img1' alt='$product_title'>
             <ul>
-                <li class='quick-view'><a href='product.php?product_id=$products_id'>View Details</a></li>
+                <li class='quick-view'><a href='product.php?product_id=$products_id' style='background:#fe4231;color:white'>View Details</a></li>
             </ul>
         </div>
         <div class='pi-text'>
@@ -123,7 +123,7 @@ function getMProduct()
         <div class='pi-pic' style='max-height:300px'>
             <img src='img/products/$product_img1' alt='$product_title'>
             <ul>
-                <li class='quick-view'><a href='product.php?product_id=$products_id'>View Details</a></li>
+                <li class='quick-view'><a href='product.php?product_id=$products_id' style='background:#fe4231;color:white'>View Details</a></li>
             </ul>
         </div>
         <div class='pi-text'>
@@ -245,7 +245,7 @@ function getPcatProd()
                     <div class='pi-pic' style='max-height:350px'>
                         <img src='img/products/$product_img1' alt='$product_title'>
                         <ul>
-                            <li class='quick-view'><a href='product.php?product_id=$products_id'>View Details</a></li>
+                            <li class='quick-view'><a href='product.php?product_id=$products_id' style='background:#fe4231;color:white'>View Details</a></li>
                         </ul>
                     </div>
                     <div class='pi-text'>
@@ -318,7 +318,7 @@ function getcatProd()
                     <div class='pi-pic' style='max-height:350px'>
                         <img src='img/products/$product_img1' alt='$product_title'>
                         <ul>
-                            <li class='quick-view'><a href='product.php?product_id=$products_id'>View Details</a></li>
+                            <li class='quick-view'><a href='product.php?product_id=$products_id' style='background:#fe4231;color:white'>View Details</a></li>
                         </ul>
                     </div>
                     <div class='pi-text'>
@@ -444,7 +444,7 @@ function relatedProducts()
                 <div class='pi-pic' style='max-height:300px'>
                     <img src='img/products/$p_img1' alt='$p_name'>
                     <ul>
-                        <li class='quick-view'><a href='product.php?product_id=$p_id'>View Details</a></li>
+                        <li class='quick-view'><a href='product.php?product_id=$p_id' style='background:#fe4231;color:white'>View Details</a></li>
                     </ul>
                 </div>
                 <div class='pi-text'>
@@ -520,7 +520,6 @@ function cart_items()
 
     global $db;
 
-    $ip_add = getRealIpUser();
     $c_id = $_SESSION['customer_email'];
 
     $get_items = "select * from cart where c_id = '$c_id' ORDER BY date DESC";
@@ -591,7 +590,7 @@ function cart_items()
                </div>
            </td>
            <td class='total-price first-row'>PKR $pro_total_p</td>
-           <td class='close-td first-row'><i class='ti-close'></i></td>
+           <td class='close-td first-row'><a href='shopping-cart.php?del=$pro_id'><i class='ti-close' style='color:black'></i></td>
        </tr>    
    ";
         }
