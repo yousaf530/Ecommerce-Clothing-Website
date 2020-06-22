@@ -82,7 +82,6 @@ function getWProduct()
         <div class='pi-pic' style='max-height:300px'>
             <img src='img/products/$product_img1' alt='$product_title'>
             <ul>
-                <li class='w-icon active'><a href='#'><i class='icon_bag_alt'></i></a></li>
                 <li class='quick-view'><a href='product.php?product_id=$products_id'>View Details</a></li>
             </ul>
         </div>
@@ -124,7 +123,6 @@ function getMProduct()
         <div class='pi-pic' style='max-height:300px'>
             <img src='img/products/$product_img1' alt='$product_title'>
             <ul>
-                <li class='w-icon active'><a href='#'><i class='icon_bag_alt'></i></a></li>
                 <li class='quick-view'><a href='product.php?product_id=$products_id'>View Details</a></li>
             </ul>
         </div>
@@ -247,7 +245,6 @@ function getPcatProd()
                     <div class='pi-pic' style='max-height:350px'>
                         <img src='img/products/$product_img1' alt='$product_title'>
                         <ul>
-                            <li class='w-icon active'><a href='#'><i class='icon_bag_alt'></i></a></li>
                             <li class='quick-view'><a href='product.php?product_id=$products_id'>View Details</a></li>
                         </ul>
                     </div>
@@ -321,7 +318,6 @@ function getcatProd()
                     <div class='pi-pic' style='max-height:350px'>
                         <img src='img/products/$product_img1' alt='$product_title'>
                         <ul>
-                            <li class='w-icon active'><a href='#'><i class='icon_bag_alt'></i></a></li>
                             <li class='quick-view'><a href='product.php?product_id=$products_id'>View Details</a></li>
                         </ul>
                     </div>
@@ -448,7 +444,6 @@ function relatedProducts()
                 <div class='pi-pic' style='max-height:300px'>
                     <img src='img/products/$p_img1' alt='$p_name'>
                     <ul>
-                        <li class='w-icon active'><a href='#'><i class='icon_bag_alt'></i></a></li>
                         <li class='quick-view'><a href='product.php?product_id=$p_id'>View Details</a></li>
                     </ul>
                 </div>
