@@ -44,20 +44,6 @@ include("header.php");
                                 <li class="fw-normal">Subtotal <span><?php total_price(); ?></span></li>
                                 <li class="total-price">Total <span><?php total_price(); ?></span></li>
                             </ul>
-                            <div class="payment-check">
-                                <div class="pc-item">
-                                    <label for="pc-check">
-                                        Cash on Delivery
-                                        <input type="checkbox" id="pc-check" checked required>
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-
-                                <div class="pc-item">
-                                    <p id="msg" style="margin-top:18px"></p>
-                                </div>
-
-                            </div>
                             <form action="check-out.php" method="post">
                                 <div class="order-btn">
                                     <a href="check-out.php?place=1" class="site-btn place-btn">Place Order</a>
@@ -76,22 +62,6 @@ include("header.php");
 <?php
 include('footer.php');
 ?>
-
-<script>
-    $(".site-btn").on('click', function() {
-
-        if (!$("input[type='checkbox']").is(':checked')) {
-
-            $("#msg").html(
-                "<span class='alert alert-danger'>" +
-                "Please check Cash on delivery.</span>");
-        } else {
-            return;
-        }
-
-    });
-</script>
-
 
 </body>
 
@@ -144,7 +114,7 @@ if (isset($_GET['place'])) {
     $run_clear = mysqli_query($con, $cart_clear);
 
     echo "<script>alert('Order Placed. Thankyou for Shopping')</script>";
-    echo "<script>window.open('shop.php','_self')</script>";
+    echo "<script>window.open('account.php?orders','_self')</script>";
 }
 
 

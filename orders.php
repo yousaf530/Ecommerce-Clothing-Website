@@ -14,7 +14,7 @@ if (isset($_SESSION['customer_email'])) {
     $custom_id = $get_query['customer_id'];
 
 
-    $get_items = "select * from orders where c_id = '$custom_id'";
+    $get_items = "select * from orders where c_id = '$custom_id' ORDER BY date DESC";
     $run_items = mysqli_query($db, $get_items);
 
 
@@ -51,7 +51,7 @@ if (isset($_SESSION['customer_email'])) {
         </td>
         <td class='first-row'>$o_qty</td>
         <td class='first-row'>
-            $o_price
+            $o_date
         </td>
     </tr>";
     }
