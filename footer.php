@@ -39,7 +39,7 @@
                     <ul>
 
                         <?php if (!($_SESSION['customer_email'] == 'unset')) {
-                            echo "'<li><a href='account.php'>My Account</a></li>'";
+                            echo "<li><a href='account.php?orders'>My Account</a></li>";
                         } ?>
                         <li><a href="shopping-cart.php">Shopping Cart</a></li>
                         <li><a href="check-out.php">Check Out</a></li>

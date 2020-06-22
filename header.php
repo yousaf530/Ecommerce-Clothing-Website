@@ -1,6 +1,5 @@
 <?php
-session_start();
-$_SESSION['customer_email'] = 'unset';
+require_once('config.php');
 include('db.php');
 ?>
 
