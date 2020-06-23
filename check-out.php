@@ -103,8 +103,10 @@ if (isset($_GET['place'])) {
             $total_q += $pro_qty;
             $pro_total_p = $pro_price * $pro_qty;
         }
+
+        $final_price += $pro_total_p;
     }
-    $order = "insert into orders (order_qty, order_price, c_id, date) values ('$total_q','$pro_total_p','$custom_id',NOW())";
+    $order = "insert into orders (order_qty, order_price, c_id, date) values ('$total_q','$final_price','$custom_id',NOW())";
 
     $run_order = mysqli_query($con, $order);
 
