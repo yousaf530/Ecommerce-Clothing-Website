@@ -133,23 +133,34 @@ if (isset($_POST['register'])) {
     $c_contact = $_POST['contact'];
     $c_name = $_POST['name'];
 
-    $c_image = $_FILES['pimage']['name'];
-    $c_tmp_image = $_FILES['pimage']['tmp_name'];
-
     $c_ip = getRealIpUser();
-
 
     $_SESSION['customer_email'] = $c_email;
     $c_id = $_SESSION['customer_email'];
 
-    move_uploaded_file($c_tmp_image, "/img/customer/$c_image");
+    $tardir = "img/customer/";
+
+    $fileName = basename($_FILES['pimage']['name']);
+
+    $targetPath = $tardir . $fileName;
+    $fileType = pathinfo($targetPath, PATHINFO_EXTENSION);
+
+    $allow = array('jpg', 'png', 'jpeg');
 
 
+    if (in_array($fileType, $allow)) {
+        if (move_uploaded_file($_FILES['pimage']['tmp_name'], $targetPath)) {
+            $insert_c = "Insert into customer (customer_name,customer_email,customer_pass,customer_address,customer_contact,customer_image,customer_ip)
+            values('$c_name','$c_email','$c_pass','$c_address','$c_contact','$fileName','$c_ip')";
+        }
+    } else {
+        echo "<script>alert('Image not Inserted.')</script>";
+    }
 
-    $insert_c = "Insert into customer (customer_name,customer_email,customer_pass,customer_address,customer_contact,customer_image,customer_ip)
-     values('$c_name','$c_email','$c_pass','$c_address','$c_contact','$c_image','$c_ip')";
+
 
     $run_insert = mysqli_query($con, $insert_c);
+
 
     $sel_cart = "select * from cart where c_id = '$c_id'";
 

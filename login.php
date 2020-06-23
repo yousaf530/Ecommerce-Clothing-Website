@@ -99,7 +99,7 @@ if (isset($_POST['login'])) {
         $_SESSION['customer_email'] = $log_email;
 
         echo  "<script>alert('Account Logged In')</script>";
-        echo  "<script>window.open('account.php?orders','_self')</script>";
+        echo  "<script>window.open('index.php','_self')</script>";
     } else {
         $_SESSION['customer_email'] = $log_email;
 
