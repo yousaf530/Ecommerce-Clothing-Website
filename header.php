@@ -8,9 +8,9 @@ include('db.php');
 <html lang="en">
 
 <meta charset="UTF-8">
-<meta name="description" content="Threaderz">
+<meta name="description" content="Inferno Co.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Threaderz</title>
+<title>Inferno Co.</title>
 
 <!-- Google Fonts Used -->
 <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
@@ -18,7 +18,7 @@ include('db.php');
 
 
 <!-- Css Styles -->
-<link rel="icon" href="img/font.svg">
+<link rel="icon" href="img/icon.svg">
 <link rel='stylesheet' href='css/bootstrap.min.css' type='text/css'>
 <link rel='stylesheet' href='css/font-awesome.min.css' type='text/css'>
 <link rel='stylesheet' href='css/themify-icons.css' type='text/css'>
@@ -100,7 +100,7 @@ include('db.php');
                 <div class="row">
                     <div class="col-md-3 logo">
                         <a href="index.php">
-                            <span>Threaderz</span>
+                            <span>Inferno Co.</span>
                         </a>
                     </div>
 

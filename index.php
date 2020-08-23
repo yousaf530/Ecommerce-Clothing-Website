@@ -1,14 +1,11 @@
+
 <?php
 $active = "Home";
 include("db.php");
 include("functions.php");
 include("header.php");
-
 ?>
 
-
-
-<!-- Hero Section Begin -->
 
 <section class="hero-section">
     <div class="hero-items owl-carousel">
@@ -76,7 +73,6 @@ include("header.php");
     </div>
 </section>
 
-
 <!-- Banner Section Begin -->
 
 <div class="banner-section spad">
@@ -85,7 +81,7 @@ include("header.php");
             <div class="col-lg-4">
                 <a href='shop.php?cat_id=1'>
                     <div class="single-banner">
-                        <img src="img/banner-1.png" alt="">
+                        <img src="img/banner-1.png" alt="Mens">
                         <div class="inner-text">
                             <h4>Men’s</h4>
                         </div>
@@ -138,7 +134,6 @@ include("header.php");
                     <?php
                     getWProduct();
                     ?>
-
                 </div>
             </div>
         </div>
@@ -171,7 +166,6 @@ include("header.php");
         </div>
     </div>
 </section>
-
 
 <!-- Footer -->
 

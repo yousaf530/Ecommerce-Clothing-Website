@@ -5,12 +5,12 @@
             <div class="col-lg-3">
                 <div class="footer-left">
                     <div class="footer-logo">
-                        <a href="index.php"> <span>Threaderz</span>
+                        <a href="index.php"> <span>Inferno Co.</span>
                         </a>
                     </div>
                     <ul>
                         <li>+92 3213352126</li>
-                        <li>threaderz@gmail.com</li>
+                        <li>Inferno Co.@gmail.com</li>
                         <li>NUST H-12, Islamabad</li>
                     </ul>
                     <div class="footer-social">
@@ -41,8 +41,22 @@
                         <?php if (!($_SESSION['customer_email'] == 'unset')) {
                             echo "<li><a href='account.php?orders'>My Account</a></li>";
                         } ?>
-                        <li><a href="shopping-cart.php">Shopping Cart</a></li>
-                        <li><a href="check-out.php">Check Out</a></li>
+                        <li><a href="
+                        <?php if (!($_SESSION['customer_email'] == 'unset')) {
+                            echo "shopping-cart.php";
+                        } else {
+                            echo "login.php";
+                        }
+                         ?>">Shopping Cart</a></li>
+
+                        <li><a href="
+                        <?php if (!($_SESSION['customer_email'] == 'unset')) {
+                            echo "check-out.php";
+                        } else {
+                            echo "login.php";
+                        }
+                         ?>
+                        ">Check Out</a></li>
 
                     </ul>
                 </div>
@@ -64,7 +78,6 @@
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery-ui.min.js"></script>
-<script src="js/jquery.countdown.min.js"></script>
 <script src="js/jquery.zoom.min.js"></script>
 <script src="js/jquery.dd.min.js"></script>
 <script src="js/jquery.slicknav.js"></script>

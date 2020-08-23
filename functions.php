@@ -86,7 +86,7 @@ function getWProduct()
             </ul>
         </div>
         <div class='pi-text'>
-            <a href='#'>
+            <a href='product.php?product_id=$products_id'>
                 <h5>$product_title</h5>
             </a>
             <div class='product-price'>

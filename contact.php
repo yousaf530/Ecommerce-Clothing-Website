@@ -56,7 +56,7 @@ include("header.php");
                         </div>
                         <div class="ci-text">
                             <span>Email:</span>
-                            <p>threaderz@gmail.com</p>
+                            <p>Inferno Co.@gmail.com</p>
                         </div>
                     </div>
                 </div>
