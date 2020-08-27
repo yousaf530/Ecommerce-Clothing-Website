@@ -110,9 +110,7 @@ include('footer.php');
                 "<span class='alert alert-danger'>" +
                 "Enter Valid Email</span>");
             event.preventDefault();
-
         }
-
 
 
     });

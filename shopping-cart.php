@@ -40,7 +40,7 @@ include('header.php');
                         <div class="cart-buttons">
 
                             <a href="shop.php" class="primary-btn continue-shop">Continue shopping</a>
-                            <a href="shopping-cart.php" class="primary-btn up-cart">Update cart</a>
+                            <a href="shopping-cart.php?upd=" class="primary-btn up-cart">Update cart</a>
                         </div>
 
                     </div>
@@ -73,6 +73,19 @@ include('footer.php');
 <?php
 
 if (isset($_GET['del'])) {
+
+
+    $p_id = $_GET['del'];
+
+
+    $query = "Delete from cart where products_id='$p_id'";
+
+    $run_query = mysqli_query($con, $query);
+
+    echo "<script>window.open('shopping-cart.php','_self')</script>";
+}
+
+if (isset($_GET['upd'])) {
 
 
     $p_id = $_GET['del'];

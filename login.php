@@ -71,6 +71,9 @@ if (isset($_POST['login'])) {
     $c_id = $log_email;
 
 
+    
+
+
 
 
     $sel_customer = "select * from customer where customer_email = '$log_email' AND customer_pass = '$log_pass'";
@@ -89,8 +92,13 @@ if (isset($_POST['login'])) {
 
     if ($check_customer == 0) {
 
-        echo  "<script>alert('Wrong Email or Password')</script>";
-
+        echo "
+        <script>
+                bootbox.alert({
+                    message: 'Invalid Username or Password',
+                    backdrop: true
+                });
+        </script>";
         exit();
     }
 
@@ -98,12 +106,11 @@ if (isset($_POST['login'])) {
 
         $_SESSION['customer_email'] = $log_email;
 
-        echo  "<script>alert('Account Logged In')</script>";
-        echo  "<script>window.open('index.php','_self')</script>";
+        echo  "<script>window.open('index.php?stat=1','_self')</script>";
     } else {
         $_SESSION['customer_email'] = $log_email;
 
-        echo  "<script>alert('Account Logged In')</script>";
+    
         echo  "<script>window.open('check-out.php?','_self')</script>";
     }
 }

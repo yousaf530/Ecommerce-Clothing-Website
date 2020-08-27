@@ -214,11 +214,7 @@ function getPcatProd()
         $run_products = mysqli_query($db, $get_products);
 
         $count = mysqli_num_rows($run_products);
-
-
-
-
-
+        
         if ($count == 0) {
 
             echo "
@@ -530,14 +526,12 @@ function cart_items()
     if ($countrows == 0) {
         echo  " 
 
-        
     <div class='card col-md-3 col-10' style='margin:0 auto; border-radius:25px 5px;box-shadow: inset -12px -8px 40px #e5e5e5;'>
         <div class='card-body'>
            <h5 style='text-align:center;font-weight:500'> No items in Cart </h5>
         </div>
     </div>
            
-        
         ";
     } else {
 
@@ -585,7 +579,7 @@ function cart_items()
            <td class='qua-col first-row'>
                <div class='quantity'>
                    <div class='pro-qty'>
-                       <input type='text' value='$pro_qty'>
+                       <input id = 'qqty' type='text' value='$pro_qty'>
                    </div>
                </div>
            </td>

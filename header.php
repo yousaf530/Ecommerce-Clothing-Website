@@ -16,15 +16,16 @@ include('db.php');
 <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
 <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
 
+<!-- Tab Icon -->
+
+<link rel="icon" href="img/icon.svg">
 
 <!-- Css Styles -->
-<link rel="icon" href="img/icon.svg">
 <link rel='stylesheet' href='css/bootstrap.min.css' type='text/css'>
 <link rel='stylesheet' href='css/font-awesome.min.css' type='text/css'>
 <link rel='stylesheet' href='css/themify-icons.css' type='text/css'>
 <link rel='stylesheet' href='css/elegant-icons.css' type='text/css'>
 <link rel='stylesheet' href='css/owl.carousel.min.css' type='text/css'>
-<link rel='stylesheet' href='css/jquery-ui.min.css' type='text/css'>
 <link rel='stylesheet' href='css/slicknav.min.css' type='text/css'>
 <link rel='stylesheet' href='css/style.css' type='text/css'>
 
@@ -42,9 +43,7 @@ include('db.php');
 
     <!-- Header Section-->
 
-
-    <header class="header-section ">
-
+    <header class="header-section">
         <!-- Top Bar -->
         <div class="header-top" id="top">
             <div class="container">
@@ -105,10 +104,12 @@ include('db.php');
                     </div>
 
                     <div class="col-md-6">
-                        <div class="input-group">
-                            <input type="text" placeholder="Search our Store">
-                            <button type="button"><i class="ti-search"></i></button>
-                        </div>
+                        <form method="post">
+                            <div class="input-group">
+                                <input type="text" name="search" placeholder="Search our Store" required>
+                                <button type="submit" name="submit"><i class="ti-search"></i></button>
+                            </div>
+                        </form>
                     </div>
 
                     <div class="col-md-3 text-right" style="visibility:      <?php if ($_SESSION['customer_email'] == 'unset') {
@@ -195,4 +196,35 @@ include('db.php');
     }
 
 
+    if (isset($_POST['submit'])) {
+
+        $item = $_POST["search"];
+
+        $get_product = "select * from products where product_title LIKE '%$item%' LIMIT 0,1";
+
+        $run_product = mysqli_query($con, $get_product);
+
+        $count = mysqli_num_rows($run_product);
+
+        if ($count > 0) {
+
+            $row_product = mysqli_fetch_array($run_product);
+
+            $products_id = $row_product['products_id'];
+
+
+
+            echo "<script>window.open('product.php?product_id=$products_id','_self')</script>";
+        } else {
+
+            echo "
+            <script>
+                    bootbox.alert({
+                        message: 'No product found',
+                        backdrop: true
+                    });
+            </script>";
+
+        }
+    }
     ?>

@@ -1,11 +1,9 @@
-
 <?php
 $active = "Home";
-include("db.php");
 include("functions.php");
 include("header.php");
-?>
 
+?>
 
 <section class="hero-section">
     <div class="hero-items owl-carousel">
@@ -171,6 +169,18 @@ include("header.php");
 
 <?php
 include('footer.php');
+
+
+if (isset($_GET['stat'])) {
+
+    echo "
+        <script>
+                bootbox.alert({
+                    message: 'Welcome! You are logged in.',
+                    backdrop: true
+                });
+        </script>";
+}
 ?>
 
 </body>
