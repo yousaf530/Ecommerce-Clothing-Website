@@ -1,4 +1,3 @@
-
 create database if not exists threaderz_store;
 use threaderz_store;
 
