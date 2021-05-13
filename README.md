@@ -1,4 +1,4 @@
-# Online_Clothing_Store
+# Inferno Online Clothing Store
 
 An Ecommerce Clothing Store Website
 
