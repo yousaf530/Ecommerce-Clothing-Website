@@ -8,7 +8,7 @@ To get the website up and running on your machine, you will need [XAMPP](https:/
 
 1. Clone the repository using this command.
    ```python
-   git clone https://github.com/yousaf530/Online_Clothing_Store.git
+   git clone https://github.com/yousaf530/Ecommerce-Clothing-Website.git
    ```
 2. Copy and Paste the cloned folder in the **htdocs** folder in XAMPP folder on your machine.
 3. Start Apache and MySQL from XAMPP control panel.
